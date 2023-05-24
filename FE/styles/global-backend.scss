@@ -23,6 +23,13 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  background: #312E81;
+  font-size: 14px;
+}
+.l-backend {
+  padding-left: 2rem;
+  padding-right: 2rem;
+
 }
 /* Auth */
 .auth .login-half-bg {
@@ -109,6 +116,21 @@ body {
   color: initial;
 }
 
+.box {
+  box-shadow: 0 3px 20px #0000000b;
+  background-color: #fff;
+  border-color: transparent;
+  border-radius: .375rem;
+  position: relative;
+}
+.intro-y {
+  min-width: 265px;
+}
+//.p-5 {
+//  padding: 1.25rem;
+//}
+
+
 .page-body-wrapper {
   min-height: calc(100vh - 97px);
   display: -webkit-flex;
@@ -181,10 +203,10 @@ body {
   top: 27px;
 }
 
-@import "backend-components/common/light/variables.scss";
-@import "backend-components/variables.scss";
-@import "backend-components/vertical-wrapper.scss";
+//@import "backend-components/common/light/variables.scss";
+//@import "backend-components/variables.scss";
+//@import "backend-components/vertical-wrapper.scss";
 @import "backend-components/sidebar.scss";
 
-@import "backend-components/table.scss";
-@import "backend-components/buttons.scss";
+//@import "backend-components/table.scss";
+//@import "backend-components/buttons.scss";

@@ -11,193 +11,62 @@ export default function Sidebar() {
   const [collapseShow, setCollapseShow] = React.useState("hidden");
   const router = useRouter();
   return (
-    <>
-      <nav className="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden  bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6">
-        <div className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
-          {/* Toggler */}
-          <button
-            className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
-            type="button"
-            onClick={() => setCollapseShow("bg-white m-2 py-3 px-6")}
-          >
-            <i className="fas fa-bars"></i>
-          </button>
-          {/* Brand */}
-          <Link legacyBehavior href="/dev.front/pages">
-            <a className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold px-0">
-              <Image
-                src="/images/logo.svg"
-                className="logo"
-                width="180"
-                height="32"
-                alt=""
-              />
-            </a>
-          </Link>
-          {/* User */}
-          <ul className="md:hidden items-center flex flex-wrap list-none">
-            <li className="inline-block relative">
-              {/*<NotificationDropdown />*/}
+    <nav className="pr-5 pb-16 overflow-x-hidden hidden md:block w-[85px] xl:w-[230px]">
+        <a aria-current="page"
+         href="/"
+         className="router-link-active router-link-exact-active flex items-center pt-4 pl-5 intro-x">
+          {/*<img alt="Midone Tailwind HTML Admin Template" className="w-6" src="/assets/logo.9a88cec5.svg">*/}
+            <span
+              className="hidden ml-3 text-lg text-white xl:block">Map Kids
+            </span>
+        </a>
+        <div className="w-full h-px bg-white/[0.08] z-10 relative dark:bg-white/[0.07] my-6" />
+        <ul className="sidebar">
+            <li className="active">
+                <a className="">
+                    <div className="icon-block">
+                        <img src="../../images/backend/dashboard/home.svg" />
+                    </div>
+                    <div className="hidden xl:flex items-center w-full ml-3 text-slate-800 font-medium dark:text-slate-300">
+                        Dashboard
+                        <div className="transition ease-in duration-100 ml-auto mr-5 hidden xl:block"></div>
+                    </div>
+                </a>
             </li>
-            <li className="inline-block relative">{/*<UserDropdown />*/}</li>
-          </ul>
-          {/* Collapse */}
-          <div
-            className={
-              "md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none  absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded " +
-              collapseShow
-            }
-          >
-            {/* Collapse Header */}
-            <div className="md:min-w-full md:hidden block pb-4 mb-4 border-b border-solid border-blueGray-200">
-              <div className="flex flex-wrap">
-                <div className="w-6/12">
-                  <Link legacyBehavior href="/dev.front/pages">
-                    <a className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0">
-                      <Image
-                        src="/images/logo.svg"
-                        alt="Mapkids"
-                        width="180"
-                        height="33"
-                      />
-                    </a>
-                  </Link>
-                </div>
-                <div className="w-6/12 flex justify-end">
-                  <button
-                    type="button"
-                    className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
-                    onClick={() => setCollapseShow("hidden")}
-                  >
-                    <i className="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            {/* Form */}
-            <form className="mt-6 mb-4 md:hidden">
-              <div className="mb-3 pt-0">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="border-0 px-3 py-2 h-12 border border-solid  border-blueGray-500 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal"
-                />
-              </div>
-            </form>
-
-            {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
-            {/* Heading */}
-            {/*<h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">*/}
-            {/*  Admin Layout Pages*/}
-            {/*</h6>*/}
-            {/* Navigation */}
-
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
-              <li className="items-center">
-                <Link legacyBehavior href="/dashboard">
-                  <a
-                    href="components/Navbars/Sidebar#pablo"
-                    className={
-                      "text-xs uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/dashboard") !== -1
-                        ? "text-lightBlue-500 hover:text-lightBlue-600"
-                        : "text-blueGray-700 hover:text-blueGray-500")
-                    }
-                  >
-                    <i
-                      className={
-                        "fas fa-tv mr-2 text-sm " +
-                        (router.pathname.indexOf("/dashboard") !== -1
-                          ? "opacity-75"
-                          : "text-blueGray-300")
-                      }
-                    ></i>{" "}
-                    Dashboard
-                  </a>
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link legacyBehavior href="/settings">
-                  <a
-                    href=":;"
-                    className={
-                      "text-xs uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/settings") !== -1
-                        ? "text-lightBlue-500 hover:text-lightBlue-600"
-                        : "text-blueGray-700 hover:text-blueGray-500")
-                    }
-                  >
-                    <i
-                      className={
-                        "fas fa-tools mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/settings") !== -1
-                          ? "opacity-75"
-                          : "text-blueGray-300")
-                      }
-                    ></i>{" "}
-                    Settings
-                  </a>
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link legacyBehavior href="/user-requests">
-                  <a
-                    href=":;"
-                    className={
-                      "text-xs uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/user-requests") !== -1
-                        ? "text-lightBlue-500 hover:text-lightBlue-600"
-                        : "text-blueGray-700 hover:text-blueGray-500")
-                    }
-                  >
-                    <i
-                      className={
-                        "fas fa-file-invoice mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/tables") !== -1
-                          ? "opacity-75"
-                          : "text-blueGray-300")
-                      }
-                    ></i>{" "}
-                    Requests
-                  </a>
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link legacyBehavior href="/admin/maps">
-                  <a
-                    href=":;"
-                    className={
-                      "text-xs uppercase py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/maps") !== -1
-                        ? "text-lightBlue-500 hover:text-lightBlue-600"
-                        : "text-blueGray-700 hover:text-blueGray-500")
-                    }
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.localStorage.removeItem("user");
-                      signOut();
-                    }}
-                  >
-                    <i
-                      className={
-                        "fas fa-arrow-right mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/maps") !== -1
-                          ? "opacity-75"
-                          : "text-blueGray-300")
-                      }
-                    ></i>{" "}
-                    Logout
-                  </a>
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </>
+            <li>
+                <a className="cursor-pointer h-[50px] flex items-center pl-5 text-white mb-1 relative rounded-full z-10 before:content-[''] before:w-[30px] before:h-[30px] before:-mt-[30px] before:rotate-90 before:scale-[1.04] before:bg-[length:100%] before:absolute before:top-0 before:right-0 before:-mr-5 after:content-[''] after:w-[30px] after:h-[30px] after:mt-[50px] after:scale-[1.04] after:bg-[length:100%] after:absolute after:top-0 after:right-0 after:-mr-5 md:flex">
+                    <div className="text-primary before:content-[''] before:z-[-1] before:absolute before:top-0 before:right-0 before:-mr-5 before:w-12 before:h-full ">
+                        <img src="../../images/backend/dashboard/icon1.svg" width={24} height={24} />
+                    </div>
+                    <div className="hidden xl:flex items-center w-full ml-3 text-slate-800 font-medium text-white">
+                        Locations
+                        <div className="transition ease-in duration-100 ml-auto mr-5 hidden xl:block"></div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a className="cursor-pointer h-[50px] flex items-center pl-5 text-white mb-1 relative rounded-full z-10 before:content-[''] before:w-[30px] before:h-[30px] before:-mt-[30px] before:rotate-90 before:scale-[1.04] before:bg-[length:100%] before:absolute before:top-0 before:right-0 before:-mr-5 after:content-[''] after:w-[30px] after:h-[30px] after:mt-[50px] after:scale-[1.04] after:bg-[length:100%] after:absolute after:top-0 after:right-0 after:-mr-5 md:flex">
+                    <div className="text-primary before:content-[''] before:z-[-1] before:absolute before:top-0 before:right-0 before:-mr-5 before:w-12 before:h-full ">
+                        <img src="../../images/backend/dashboard/icon1.svg" width={24} height={24} />
+                    </div>
+                    <div className="hidden xl:flex items-center w-full ml-3 text-slate-800 font-medium text-white">
+                        Images
+                        <div className="transition ease-in duration-100 ml-auto mr-5 hidden xl:block"></div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a className="cursor-pointer h-[50px] flex items-center pl-5 text-white mb-1 relative rounded-full z-10 before:content-[''] before:w-[30px] before:h-[30px] before:-mt-[30px] before:rotate-90 before:scale-[1.04] before:bg-[length:100%] before:absolute before:top-0 before:right-0 before:-mr-5 after:content-[''] after:w-[30px] after:h-[30px] after:mt-[50px] after:scale-[1.04] after:bg-[length:100%] after:absolute after:top-0 after:right-0 after:-mr-5 md:flex">
+                    <div className="text-primary before:content-[''] before:z-[-1] before:absolute before:top-0 before:right-0 before:-mr-5 before:w-12 before:h-full ">
+                        <img src="../../images/backend/dashboard/youtube.svg" width={24} height={24} />
+                    </div>
+                    <div className="hidden xl:flex items-center w-full ml-3 text-slate-800 font-medium text-white">
+                        Videos
+                        <div className="transition ease-in duration-100 ml-auto mr-5 hidden xl:block"></div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </nav>
   );
 }

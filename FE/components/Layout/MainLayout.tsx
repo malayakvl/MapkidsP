@@ -1,40 +1,49 @@
-import React, { useEffect } from "react";
-// import Header from "../Header/Header";
-import { useDispatch, useSelector } from "react-redux";
-import { showLoaderAction } from "../../redux/layouts/actions";
-import {
-  reloadSelector,
-  showColorsPopupSelector,
-} from "../../redux/layouts/selectors";
-import { isDataLoadingSelector } from "../../redux/layouts/selectors";
-import { setupStorageData } from "../../lib/functions";
-import { changeReloadAction } from "../../redux/layouts";
+import React, { useEffect } from 'react';
+import { useSession } from 'next-auth/react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUserAction, setUserAction } from '../../redux/user';
+import { userSelector } from '../../redux/user/selectors';
 
 export default function MainLayout({ children }: { children: any }) {
+  // const [session] = useSession();
   const dispatch = useDispatch();
-  const backdropSelector = useSelector(showColorsPopupSelector);
-  const showLoader = useSelector(isDataLoadingSelector);
-  const reloadState = useSelector(reloadSelector);
+  const user = useSelector(userSelector);
+  // useEffect(
+  //     function () {
+  //       if (session?.user?.email && !window.localStorage.getItem('user')) {
+  //         dispatch(fetchUserAction(session.user.email));
+  //       } else {
+  //         const localUser = JSON.parse(window.localStorage.getItem('user') || '{}');
+  //         if (session?.user?.email !== localUser.email) {
+  //           window.localStorage.setItem('user', JSON.stringify({}));
+  //           dispatch(fetchUserAction(session?.user?.email));
+  //         } else {
+  //           dispatch(
+  //               setUserAction(JSON.parse(window.localStorage.getItem('user') || '{}'))
+  //           );
+  //         }
+  //       }
+  //     },
+  //     [dispatch, session?.user?.email]
+  // );
 
-  useEffect(() => {
-    if (reloadState) {
-      setupStorageData(dispatch);
-    }
-    dispatch(changeReloadAction(false));
-    dispatch(showLoaderAction);
-  }, [reloadState, dispatch]);
+  // useEffect(
+  //     function () {
+  //       if (user && Object.keys(user).length) {
+  //         const storeUser = window.localStorage.getItem('user')
+  //             ? JSON.parse(window.localStorage.getItem('user') || '')
+  //             : {};
+  //         if (storeUser.id !== user.id || storeUser.status !== user.status) {
+  //           window.localStorage.setItem('user', JSON.stringify(user));
+  //         }
+  //       }
+  //     },
+  //     [dispatch, user]
+  // );
 
   return (
-    <>
-      {showLoader && (
-        <div className="loader">
-          <div className="flex justify-center items-center w-full h-full">
-            <div className="w-16 h-16 border-b-2 border-gray-900 rounded-full animate-spin"></div>
-          </div>
-        </div>
-      )}
-      {/*<Header />*/}
-      <main>{children}</main>
-    </>
+      <div className="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased text-black">
+        {children}
+      </div>
   );
 }

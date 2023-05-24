@@ -22,7 +22,6 @@ export default function BackendLayout({ children }: { children: any }) {
   const user = useSelector(userSelector);
   const toastSelector = useSelector(toastsSelector);
   // const modalSelector = useSelector(showPreviewPopupSelector);
-
   useEffect(
     function () {
       if (session?.user?.email && !window.localStorage.getItem("user")) {
@@ -85,20 +84,46 @@ export default function BackendLayout({ children }: { children: any }) {
         </div>
       )}
       {session?.user?.email ? (
-        <>
-          <Sidebar />
-          <div className="relative md:ml-64 bg-blueGray-100">
-            <ToastContainer />
+          <div className="py-2 l-backend">
+            <div className="flex mt-[4.7rem] md:mt-0">
+              <Sidebar />
+              <div className="rounded-[30px] min-w-0 min-h-screen flex-1 pb-10 bg-slate-100 dark:bg-darkmode-700 px-4 md:px-[22px] max-w-full md:max-w-auto before:content-[''] before:w-full before:h-px before:block">
+                <div className="h-[67px] z-[51] flex items-center relative border-b border-slate-200">
+                  <nav className="flex hidden mr-auto -intro-x sm:flex">
+                    <ol className="flex items-center text-primary dark:text-slate-300">
+                      <li className=""><a href="/" className="router-link-active">Application</a></li>
+                      <li className="relative ml-5 pl-0.5 before:content-[''] before:w-[14px] before:h-[14px] before:bg-bredcrumb-chevron-dark before:bg-[length:100%] before:-ml-[1.125rem] before:absolute before:my-auto before:inset-y-0 dark:before:bg-bredcrumb-chevron-darkmode text-slate-800 cursor-text dark:text-slate-400">
+                        <a href="/" className="router-link-active"> Dashboard </a></li>
+                    </ol>
+                  </nav>
+                  <div className="relative mr-auto intro-x sm:mr-6">
+                    <div
+                        className="cursor-pointer relative text-slate-600 outline-none block before:content-[''] before:w-[8px] before:h-[8px] before:rounded-full before:absolute before:top-[-2px] before:right-0 before:bg-danger"
+                        id="headlessui-popover-button-1" aria-expanded="false">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                           stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                           className="stroke-1.5 w-5 h-5 dark:text-slate-500">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="relative">
+                    <div
+                        className="cursor-pointer block w-8 h-8 overflow-hidden rounded-full shadow-lg image-fit zoom-in intro-x"
+                        aria-haspopup="menu" aria-expanded="false"><img
+                        alt="Midone Tailwind HTML Admin Template" src="/images/backend/dashboard/profile.webp" />
+                    </div>
+                  </div>
+                </div>
 
-            <AdminNavbar />
-            {/* Header */}
-            {/*<HeaderStats session={session} />*/}
-            <div className="px-4 md:px-10 mx-auto w-full -m-24">
-              {children}
+                <div className="grid grid-cols-12 gap-6">
+                  {children}
+                </div>
+              </div>
+              <ConfirmationModal />
             </div>
           </div>
-          <ConfirmationModal />
-        </>
       ) : (
         <div>{children}</div>
       )}

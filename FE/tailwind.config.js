@@ -47,6 +47,9 @@ module.exports = {
       customRed: {
         100: "#ED5829",
       },
+      darkmode: {
+        700: '#fdfdfd',
+      },
       ...colors,
     },
     extend: {
