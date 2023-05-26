@@ -11,15 +11,6 @@ const nextConfig = {
     defaultLocale: "en",
     localeDetection: false,
   },
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/resources/company",
-        permanent: true,
-      },
-    ];
-  },
 };
 
 module.exports = nextConfig;

@@ -1,8 +1,7 @@
 declare namespace Layouts {
   interface Root {
     pagination: {
-      // notifications: Pagination;
-      userrequests: Pagination;
+      images: Pagination;
     };
     toggleMenu: boolean;
     checkedIds: CheckedIds[];

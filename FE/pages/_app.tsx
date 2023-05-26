@@ -3,6 +3,7 @@ import "../styles/bootstrap/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../styles/global.scss";
 import { NextIntlProvider } from "next-intl";
+import React, { useRef } from 'react';
 import type { NextPage } from "next";
 import Head from "next/head";
 import type { ReactElement, ReactNode } from "react";
@@ -11,6 +12,16 @@ import { SessionProvider } from "next-auth/react";
 import { Provider as ReduxProvider } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 import store from "../app/store";
+// import Map from '../components/TMap/index';
+import 'mapbox-gl/dist/mapbox-gl.css';
+
+
+// function mapStateToProps(state: any) {
+//   return {
+//     data: state.data,
+//     active: state.active
+//   };
+// }
 
 import MainLayout from "../components/Layout/MainLayout";
 
@@ -22,8 +33,12 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
+// const ConnectedMap = connect(mapStateToProps)(MapboxMap);
+
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const Layout = (Component as any).Layout || MainLayout;
+
+  const mapContainer = useRef<any>(null);
 
   return (
     <ReduxProvider store={store}>
@@ -55,19 +70,16 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
               content="width=device-width, initial-scale=1"
             />
             <title>Mapkids Application</title>
+            <link rel="icon" href="globe.png" />
             <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link
-              rel="preconnect"
-              href="https://fonts.gstatic.com"
-              crossOrigin="anonymous"
-            />
+            <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />
+            <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js' />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
             <link rel="preconnect" href="https://fonts.googleapis.com" />
-            {/*<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />*/}
             <link
                 href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap"
                 rel="stylesheet" />
           </Head>
-          {/*<ConfirmationModal />*/}
           <Layout>
             <Component {...pageProps} />
           </Layout>

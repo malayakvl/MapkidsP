@@ -8,6 +8,7 @@ import userReducer from "../redux/user/index";
 import settingsReducer from "../redux/settings/index";
 import layoutsReducer from "../redux/layouts/index";
 import profileReducer from "../redux/profile/index";
+import imagesReducer from "../redux/images/index";
 
 import logger from "redux-logger";
 
@@ -16,6 +17,7 @@ const reducers = combineReducers({
   layouts: layoutsReducer,
   user: userReducer,
   settings: settingsReducer,
+  images: imagesReducer
 });
 
 const initStore = (initialState = {}) => {

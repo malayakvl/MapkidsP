@@ -32,6 +32,7 @@ export const toggleMenuAction: any = createAction("layouts/TOGGLE_MENU");
 export const setSwitchHeaderAction: any = createAction(
   "layouts/SWITCH_HEADER_ACTION"
 );
+export const setActivePageAction: any = createAction('layouts/SET_ACTIVE_TAB');
 export const setSwitchToggleAction: any = createAction(
   "layouts/SWITCH_HEADER_TOGGLE"
 );

@@ -1,9 +1,9 @@
 import * as express from 'express';
 import TestController from '../controllers/TestController.js';
 import DashboardController from '../controllers/DashboardController.js';
+import ImageController from '../controllers/ImageController.js';
 import UserController from '../controllers/UserController.js';
 import SettingsController from '../controllers/SettingsController.js';
-import SlideController from '../controllers/SlideController.js';
 import userModel from '../models/User.js';
 
 const apiRoutes = express.Router();
@@ -16,9 +16,9 @@ apiRoutes.use(express.json({
 
 // apiRoutes.route('/post-test').get(TestController.testData);
 // apiRoutes.route('/post-test').post(TestController.testData);
-apiRoutes.route('/upload').post(TestController.uploadFile);
-apiRoutes.route('/saveSlideData').post(SlideController.submitSlideData);
-apiRoutes.route('/upload-logo').post(SlideController.uploadLogo);
+// apiRoutes.route('/upload').post(TestController.uploadFile);
+// apiRoutes.route('/saveSlideData').post(SlideController.submitSlideData);
+// apiRoutes.route('/upload-logo').post(SlideController.uploadLogo);
 
 
 /** ===================================================================== */
@@ -39,11 +39,7 @@ apiRoutes.use(async (req, res, next) => {
 });
 apiRoutes.get('/settings/fetch-item', SettingsController.getSettingsData);
 apiRoutes.post('/settings', SettingsController.submitSettingsData);
-apiRoutes.get('/user-requests/fetch-items', SlideController.fetchItems);
-apiRoutes.route('/user-requests/fetch-item/:id').get(SlideController.fetchItem);
-apiRoutes.get('/user-requests/statistic', DashboardController.getStatsData);
-apiRoutes.post('/user-requests/bulk-delete', SlideController.bulkDelete);
-apiRoutes.route('/user-requests/delete/:id').delete(SlideController.deleteRow);
+apiRoutes.get('/images/fetch-items', ImageController.fetchItems);
 
 // apiRoutes.get('/profile', TestController.testData);
 apiRoutes.route('/profile')

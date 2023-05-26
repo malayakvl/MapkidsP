@@ -5,15 +5,13 @@ export const baseApiUrl = publicRuntimeConfig.apiUrl;
 export const baseUrl = publicRuntimeConfig.siteUrl;
 
 export enum PaginationType {
-  USERREQUESTS = "userrequests",
+  IMAGES = "images",
 }
 
 export const TableHeaders: { [key in PaginationType]: Type.DataTableHeader[] } =
   {
-    [PaginationType.USERREQUESTS]: [
-      { titleKey: "Logo" },
-      { sortKey: "company_name", titleKey: "Company Name" },
-      { sortKey: "company_headline", titleKey: "Company Headline" },
+    [PaginationType.IMAGES]: [
+      { titleKey: "image" },
       { titleKey: "Actions", className: "actions" },
     ],
   };

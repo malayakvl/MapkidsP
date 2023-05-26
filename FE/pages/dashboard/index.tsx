@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { getSession } from "next-auth/react";
 import BackendLayout from "../../components/Layout/BackendLayout";
-// import CardLineChart from "../../components/Cards/CardLineChart";
 
 export default function Dashboard({ session }: { session: any }) {
   if (!session) return <></>;

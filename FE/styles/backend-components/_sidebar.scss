@@ -1,6 +1,6 @@
 .sidebar {
   li.active {
-    a {
+    .item-menu {
       @apply cursor-pointer h-[50px] flex items-center pl-5 text-white mb-1 relative
         rounded-full z-10 bg-slate-100
         before:content-[''] before:w-[30px] before:h-[30px]

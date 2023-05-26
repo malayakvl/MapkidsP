@@ -6,13 +6,14 @@ declare namespace State {
     stepData: StepData;
     settings: Settings;
     user: User;
+    images: Images;
     userRequests: UserRequests;
+
   }
 
   type Layouts = Layouts.Root;
   type Profile = Profile.Root;
-  type StepData = StepData.Root;
+  type Images = Images.Root;
   type User = User.Root;
   type Settings = Settings.Root;
-  type UserRequests = UserRequests.Root;
 }

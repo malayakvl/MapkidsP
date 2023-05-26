@@ -117,7 +117,7 @@ export default function BackendLayout({ children }: { children: any }) {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-12 gap-6">
+                <div>
                   {children}
                 </div>
               </div>

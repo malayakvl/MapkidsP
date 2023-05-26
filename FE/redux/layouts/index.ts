@@ -31,14 +31,13 @@ const initPagination = {
 
 const initialState: State.Layouts = {
   pagination: {
-    [PaginationType.USERREQUESTS]: {
+    [PaginationType.IMAGES]: {
       ...initPagination,
       sort: "DESC",
       column: "created_at",
       filters: {
-        company_headline: "",
-        company_name: "",
-      },
+        created_at: []
+      }
     },
   },
   toggleMenu: false,
