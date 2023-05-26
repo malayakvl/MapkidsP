@@ -1,6 +1,6 @@
 import imagesModel from '../models/Images.js';
 
-class ImageController {
+class VideoController {
     async fetchItems (req, res) {
         const { limit, offset, queryFilter, column, sort } = req.query;
         if (!req.user) {
@@ -14,4 +14,4 @@ class ImageController {
     }
 }
 
-export default new ImageController();
+export default new VideoController();
