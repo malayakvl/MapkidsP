@@ -12,16 +12,7 @@ import { SessionProvider } from "next-auth/react";
 import { Provider as ReduxProvider } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 import store from "../app/store";
-// import Map from '../components/TMap/index';
-import 'mapbox-gl/dist/mapbox-gl.css';
 
-
-// function mapStateToProps(state: any) {
-//   return {
-//     data: state.data,
-//     active: state.active
-//   };
-// }
 
 import MainLayout from "../components/Layout/MainLayout";
 
@@ -71,9 +62,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
             />
             <title>Mapkids Application</title>
             <link rel="icon" href="globe.png" />
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />
-            <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js' />
+            {/*<link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />*/}
+            {/*<script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js" />*/}
+
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link

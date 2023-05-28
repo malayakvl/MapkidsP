@@ -14,6 +14,10 @@
   .blueGray-300 {
     background: yellow !important;
   }
+
+  .border-gray-180, .text-gray-350 {
+    border-color: #0c63e4;
+  }
 }
 
 .backend-logo {
@@ -207,6 +211,7 @@ body, html {
 //@import "backend-components/variables.scss";
 //@import "backend-components/vertical-wrapper.scss";
 @import "backend-components/sidebar.scss";
+@import "backend-components/drop-zone.scss";
 
 //@import "backend-components/table.scss";
 //@import "backend-components/buttons.scss";

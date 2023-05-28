@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { baseApiUrl } from '../../constants';
 import { useDropzone } from 'react-dropzone';
-import { addUploadedFile, removeUploadedFile } from '../../redux/products';
+import { addUploadedFile, removeUploadedFile } from '../../redux/images';
 import { useTranslations } from 'next-intl';
 import { useDispatch } from 'react-redux';
-import { removeProductFileAction } from '../../redux/products/actions';
+// import { removeProductFileAction } from '../../redux/images/actions';
 
-const InventoryPhotos: React.FC<any> = ({ productData, uploadedFiles, photos }) => {
+const Photos: React.FC<any> = ({ productData, uploadedFiles, photos }) => {
     const t = useTranslations();
     const dispatch = useDispatch();
     const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
@@ -28,17 +28,19 @@ const InventoryPhotos: React.FC<any> = ({ productData, uploadedFiles, photos }) 
     const removeProductFile = (file: string) => {
         let _photos = productPhotos;
         _photos = _photos.filter((_file: string) => _file !== file);
-        dispatch(removeProductFileAction(file, productData.product.id));
+        // ================
+        // dispatch(removeProductFileAction(file, productData.product.id));
+        // ================
         setProductPhotos(_photos);
     };
 
     return (
         <>
-            <h2 className="form-subtitle">{t('Product images')}</h2>
+            <h2 className="mt-10 text-lg font-medium intro-y">Files Upload</h2>
             <section className="drop-zone-container">
                 <div {...getRootProps({ className: 'dropzone' })}>
                     <input {...getInputProps()} />
-                    <p>{t('Drag_and_drop_files')}</p>
+                    <p>Drag and drop image file(s), or browse your computer.</p>
                 </div>
                 {(uploadedFiles.length > 0 || photos.length > 0) && (
                     <aside>
@@ -92,4 +94,4 @@ const InventoryPhotos: React.FC<any> = ({ productData, uploadedFiles, photos }) 
     );
 };
 
-export default InventoryPhotos;
+export default Photos;

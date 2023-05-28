@@ -41,8 +41,10 @@ function Signin() {
           <div className="flex content-center items-center justify-center h-full">
             <div className="w-full lg:w-4/12 px-4">
               <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white border-0">
-                <div className="flex-auto px-4 lg:px-10 pt-10 py-5">
-                  <div className="text-center"><b>MAPKIDS</b></div>
+                <div className="flex-auto px-4 lg:px-10 pt-10 py-5" style={{background:'#f5f5f5', borderRadius: '10px'}}>
+                  <div className="text-center">
+                    <img src="../../images/backend/kids.jpeg" style={{height: '200px', margin: '0px auto'}} />
+                    <b>MAPKIDS</b></div>
                   {query.authError && (
                     <div className="error-el" style={{ right: "40px" }}>
                       <span className="text-sm">{query.authError}</span>
@@ -61,10 +63,10 @@ function Signin() {
                     }}
                   >
                     {(props) => (
-                      <form onSubmit={props.handleSubmit} className="mb-4">
+                      <form onSubmit={props.handleSubmit} className="mb-4 ">
                         <div className="relative w-full mb-5 input-email">
                           <label
-                            className="block uppercase text-blueGray-600 text-xs
+                            className="block uppercase text-blueGray-600
                                        font-bold mb-2"
                             htmlFor="grid-password"
                           >
@@ -86,8 +88,8 @@ function Signin() {
                         </div>
                         <div className="relative w-full mb-4 input-email">
                           <label
-                            className="block uppercase text-blueGray-600 text-xs
-                                                                    font-bold mb-2"
+                            className="block uppercase text-blueGray-600
+                                font-bold mb-2"
                             htmlFor="grid-password"
                           >
                             Password
@@ -105,17 +107,17 @@ function Signin() {
                           <button
                             type="submit"
                             className="bg-blueGray-800 text-white active:bg-blueGray-600
-                                                                    text-sm font-bold uppercase px-6 py-3
-                                                                    rounded shadow hover:shadow-lg
-                                                                    outline-none focus:outline-none mr-1 mb-1
-                                                                    w-full ease-linear transition-all duration-150"
+                                text-sm font-bold uppercase px-6 py-3
+                                rounded shadow hover:shadow-lg
+                                outline-none focus:outline-none mr-1 mb-1
+                                w-full ease-linear transition-all duration-150"
                           >
                             Sign In
                           </button>
                         </div>
                         <div>
                           <Link href={"/auth/restore"} legacyBehavior>
-                            <a className="ml-auto text-xs text-orange-450">
+                            <a className="ml-auto text-sm text-orange-450">
                               Forgot password?
                             </a>
                           </Link>

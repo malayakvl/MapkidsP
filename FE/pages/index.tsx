@@ -22,18 +22,11 @@ Home.Layout = MainLayout;
 export async function getServerSideProps(context: any) {
     const { req, locale } = context;
     const session = await getSession({ req });
-
-    if (session) {
-        return {
-            redirect: { destination: `/${locale === 'fr' ? '' : `${locale}/`}dashboard` }
-        };
-    } else {
-        return {
-            props: {
-                messages: {
-                    ...require(`../messages/${locale}.json`)
-                }
+    return {
+        props: {
+            messages: {
+                ...require(`../messages/${locale}.json`)
             }
-        };
-    }
+        }
+    };
 }

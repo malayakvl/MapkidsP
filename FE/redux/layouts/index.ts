@@ -18,6 +18,7 @@ import {
   setModalConfirmationMetaAction,
   toggleMenuAction,
   toggleSubmenuAction,
+  setActivePageAction
 } from "./actions";
 import { PaginationType } from "../../constants";
 
@@ -52,6 +53,9 @@ const initialState: State.Layouts = {
   switchHeader: false,
   modalConfirmationMeta: null,
   submenuDisplayStatus: [],
+  activeTab: {
+    images: { tab: 'list' }
+  }
 };
 
 // ------------------------------------
@@ -206,6 +210,22 @@ const ACTION_HANDLERS: any = {
       ...action.payload,
     },
   }),
+  [setActivePageAction]: (
+      state: State.Layouts,
+      action: Type.ReduxAction<{
+        type: string;
+        modifier: string;
+      }>
+  ): State.Layouts => ({
+    ...state,
+    activeTab: {
+      ...state.activeTab,
+      [action.payload.type]: {
+        tab: action.payload.modifier
+      }
+    }
+  }),
+
 };
 
 export {
@@ -226,6 +246,7 @@ export {
   setModalConfirmationMetaAction,
   toggleMenuAction,
   toggleSubmenuAction,
+  setActivePageAction,
 };
 
 // ------------------------------------

@@ -15,6 +15,13 @@ declare namespace Layouts {
     switchHeader: boolean;
     modalConfirmationMeta: ModalConfirmationMeta | null;
     submenuDisplayStatus: any;
+    activeTab: {
+      images: TabTypes;
+    };
+  }
+
+  interface TabTypes {
+    tab: string;
   }
 
   interface Toast {

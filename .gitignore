@@ -116,3 +116,4 @@ FE/.env
 .DS_Store
 /BE/package-lock.json
 /DELETED/
+/FE/DELETE/

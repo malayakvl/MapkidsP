@@ -91,3 +91,5 @@ export const bulkDeleteAction: any = createAction(
                 });
         }
 );
+export const addUploadedFile: any = createAction('images/ADD_UPLOADED_FILE');
+export const removeUploadedFile: any = createAction('images/REMOVE_UPLOADED_FILE');

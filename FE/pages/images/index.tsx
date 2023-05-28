@@ -4,9 +4,9 @@ import { getSession } from "next-auth/react";
 import React, { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { useDispatch, useSelector } from 'react-redux';
-import { ListItems } from '../../components/Images';
-import { fetchItemsAction } from '../../redux/images/actions';
-// import { activeTabSelectorFactory } from '../../redux/layouts/selectors';
+import { ListItems, Photos } from '../../components/Images';
+// import { fetchItemsAction } from '../../redux/images/actions';
+import { activeTabSelectorFactory } from '../../redux/layouts/selectors';
 import { setSwitchHeaderAction, setActivePageAction } from '../../redux/layouts/actions';
 import BackendLayout from "../../components/Layout/BackendLayout";
 import Dashboard from "../dashboard";
@@ -17,8 +17,9 @@ export default function Index({ session, locale }: { session: any; locale: strin
     const count = useSelector(itemCountSelector);
     const t = useTranslations();
     const dispatch = useDispatch();
-    // const activeTabLayout = useSelector(activeTabSelectorFactory('inventory'));
+    const activeTabLayout = useSelector(activeTabSelectorFactory('images'));
     const hiddenFileInput = useRef(null);
+    const activeLayout = activeTabLayout;
 
     useEffect(() => {
         // dispatch(fetchAdditionalAction());
@@ -29,23 +30,24 @@ export default function Index({ session, locale }: { session: any; locale: strin
         (hiddenFileInput as any).current.click();
     };
 
-    const handleChange = (event: any) => {
-        const fileUploaded = event.target.files[0];
-        const formData = new FormData();
-        if (fileUploaded) {
-            formData.append('file', fileUploaded);
-        }
-        // dispatch(importProductAction(formData));
+    // console.log('activeTabLayout', activeTabLayout.tab);
+    // const handleChange = (event: any) => {
+    //     const fileUploaded = event.target.files[0];
+    //     const formData = new FormData();
+    //     if (fileUploaded) {
+    //         formData.append('file', fileUploaded);
+    //     }
+    // };
+
+    const changeLayout = (type: string) => {
+        dispatch(
+            setActivePageAction({
+                type: 'images',
+                modifier: 'upload'
+            })
+        );
     };
 
-    // const handleAddProduct = () => {
-    //     dispatch(
-    //         setActivePageAction({
-    //             type: 'inventory',
-    //             modifier: 'add'
-    //         })
-    //     );
-    // };
 
     return (
         <>
@@ -57,18 +59,25 @@ export default function Index({ session, locale }: { session: any; locale: strin
             <h2 className="mt-10 text-lg font-medium intro-y">
                 {t('Images')}
             </h2>
-            <div className="grid grid-cols-12 gap-6 mt-5">
-                <div className="flex flex-wrap items-center col-span-12 mt-2 intro-y sm:flex-nowrap">
-                    <button
-                        className="transition duration-200 border inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&amp;:hover:not(:disabled)]:bg-opacity-90 [&amp;:hover:not(:disabled)]:border-opacity-90 [&amp;:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed bg-primary border-primary text-white dark:border-primary mr-2 shadow-md"> Add
-                        Upload New Images
-                    </button>
-                    <div className="hidden mx-auto md:block text-slate-500"> Showing 1 to 4 of 4 entries</div>
-                </div>
-            </div>
-
-
-            <ListItems locale={locale} />
+            {activeLayout.tab === 'list' ? (
+                <>
+                    <div className="grid grid-cols-12 gap-6 mt-5">
+                        <div className="flex flex-wrap items-center col-span-12 mt-2 intro-y sm:flex-nowrap">
+                            <button
+                                onClick={() => changeLayout('upload')}
+                                className="transition duration-200 border inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&amp;:hover:not(:disabled)]:bg-opacity-90 [&amp;:hover:not(:disabled)]:border-opacity-90 [&amp;:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed bg-primary border-primary text-white dark:border-primary mr-2 shadow-md"> Add
+                                Upload New Images
+                            </button>
+                            <div className="hidden mx-auto md:block text-slate-500"> Showing 1 to 4 of 4 entries</div>
+                        </div>
+                    </div>
+                    <ListItems locale={locale} />
+                </>
+            ) : (
+                <>
+                    <Photos uploadedFiles={[]} photos={[]} />
+                </>
+            )}
             {/*<div className="block-white-8 mr-10 white-shadow-medium mt-10">*/}
             {/*    <div className="tabs-content">*/}
             {/*        <ListItems locale={locale} />*/}
