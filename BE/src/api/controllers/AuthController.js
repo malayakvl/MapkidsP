@@ -5,8 +5,6 @@ import invitationModel from '../models/Invitation.js'
 import { sendMail } from '../lib/sendMail.js';
 import { restoreEmail } from '../sender/templates.js';
 
-
-
 class AuthController {
     /**
      * Login user via email and password

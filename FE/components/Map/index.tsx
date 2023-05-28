@@ -1,9 +1,6 @@
-import type { NextPage } from 'next';
 import React, { useRef, useEffect } from 'react';
 import mapboxgl from "mapbox-gl";
 
-// import mapboxgl from 'mapbox-gl';
-// import 'mapbox-gl/dist/mapbox-gl.css';
 const Map = () => {
     const mapContainer = useRef<any>(null);
     // console.log(mapContainer)

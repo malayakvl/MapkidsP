@@ -12,17 +12,11 @@ passport.use(new LocalStrategy({
 }, async (email, password, done) => {
     try {
         const user = await userModel.findUserByEmail(email);
-        console.log('validatePassword', userModel.validatePassword(password, user.salt, user.password));
-        // if (!user) {
         if (!user || !userModel.validatePassword(password, user.salt, user.password)) {
             return done(new Error('Authentification failed'), null, {
                 status: 500,
                 message: 'Login and/or Password is invalid'
             });
-            // return done(null, null, {
-            //     status: 400,
-            //     message: 'Login and/or Password is invalid'
-            // });
         }
         delete user.salt;
         delete user.password;

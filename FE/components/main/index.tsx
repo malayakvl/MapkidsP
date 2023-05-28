@@ -1,5 +1,4 @@
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
 import React, { useState } from 'react';
 import Map from '../Map/index';
 import { useDispatch } from 'react-redux';

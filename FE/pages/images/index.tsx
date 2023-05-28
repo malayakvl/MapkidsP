@@ -1,15 +1,12 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import { getSession } from "next-auth/react";
 import React, { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { ListItems, Photos } from '../../components/Images';
-// import { fetchItemsAction } from '../../redux/images/actions';
 import { activeTabSelectorFactory } from '../../redux/layouts/selectors';
 import { setSwitchHeaderAction, setActivePageAction } from '../../redux/layouts/actions';
 import BackendLayout from "../../components/Layout/BackendLayout";
-import Dashboard from "../dashboard";
 import { itemCountSelector } from "../../redux/images/selectors";
 
 export default function Index({ session, locale }: { session: any; locale: string }) {
@@ -29,15 +26,6 @@ export default function Index({ session, locale }: { session: any; locale: strin
     const handleClick = () => {
         (hiddenFileInput as any).current.click();
     };
-
-    // console.log('activeTabLayout', activeTabLayout.tab);
-    // const handleChange = (event: any) => {
-    //     const fileUploaded = event.target.files[0];
-    //     const formData = new FormData();
-    //     if (fileUploaded) {
-    //         formData.append('file', fileUploaded);
-    //     }
-    // };
 
     const changeLayout = (type: string) => {
         dispatch(
