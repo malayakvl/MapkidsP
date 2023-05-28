@@ -23,9 +23,9 @@ export default function Index({ session, locale }: { session: any; locale: strin
         dispatch(setSwitchHeaderAction(null));
     }, []);
 
-    const handleClick = () => {
-        (hiddenFileInput as any).current.click();
-    };
+    // const handleClick = () => {
+    //     (hiddenFileInput as any).current.click();
+    // };
 
     const changeLayout = (type: string) => {
         dispatch(

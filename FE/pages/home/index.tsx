@@ -1,5 +1,4 @@
 import React from "react";
-import Map from '../../components/Map/index';
 
 // import mapboxgl from 'mapbox-gl';
 // import './Map.css';
