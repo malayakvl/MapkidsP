@@ -67,7 +67,7 @@ class User {
     async findExistingEmail(email, userId) {
         const client = await pool.connect();
         try {
-            console.log(`SELECT * FROM data.users WHERE email = '${email}' AND id != '${userId}'`);
+            console.log(`// SELECT * FROM data.users WHERE email = '${email}' AND id != '${userId}'`);
             const res = await client.query(`SELECT * FROM data.users WHERE email = '${email}' AND id != '${userId}'`);
             return res.rows.length;
         } catch (e) {

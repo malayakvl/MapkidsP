@@ -27,7 +27,8 @@
 
 body, html {
   font-family: 'Montserrat', sans-serif;
-  background: #312E81;
+  //background: #312E81;
+  background: #432775;
   font-size: 14px;
 }
 .l-backend {
@@ -207,11 +208,44 @@ body, html {
   top: 27px;
 }
 
+.back-arrow {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+
+
+  &:before {
+    background: url(../public/images/arrow-right.svg);
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    content: "";
+    display: block;
+    position: absolute;
+    left: 5px;
+    top:7px;
+    rotate: 180deg;
+  }
+}
+.btn-back {
+  color: #000;
+  background-color: #fff;
+  border-color: #428DFC;
+}
+
+.btn-back:hover {
+  color: #000;
+  background-color: #52bdb7;
+  border-color: #48b9b3;
+}
+
+
 //@import "backend-components/common/light/variables.scss";
 //@import "backend-components/variables.scss";
 //@import "backend-components/vertical-wrapper.scss";
+//@import "backend-components/alerts";
 @import "backend-components/sidebar.scss";
 @import "backend-components/drop-zone.scss";
-
-//@import "backend-components/table.scss";
+@import "backend-components/table.scss";
 //@import "backend-components/buttons.scss";

@@ -91,5 +91,27 @@ export const bulkDeleteAction: any = createAction(
                 });
         }
 );
+export const uploadPhotosAction: any = createAction(
+    "slide/UPLOAD_PHOTO_ACTION",
+    async (data: any) =>
+        (dispatch: Type.Dispatch, getState: () => State.Root): Promise<void> => {
+            const state = getState();
+            console.log(data);
+            dispatch(showLoaderAction(true));
+            return axios
+                .post(`${baseUrl}/images/upload-photos`, data, {
+                    headers: {
+                        ...authHeader(state.user.user.email)
+                    }})
+                .then(async (res) => {
+                    // dispatch(updateCompanyLogoAction(res.data.fileName));
+                    dispatch(showLoaderAction(false));
+                    dispatch(uploadDoneAction(true));
+                    dispatch(setSuccessToastAction(`Upload complete succsessfully`));
+                });
+        }
+);
+
+export const uploadDoneAction: any = createAction('images/UPLOAD_DONE');
 export const addUploadedFile: any = createAction('images/ADD_UPLOADED_FILE');
 export const removeUploadedFile: any = createAction('images/REMOVE_UPLOADED_FILE');

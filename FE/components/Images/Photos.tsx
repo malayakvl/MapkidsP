@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { baseApiUrl } from '../../constants';
+import React, { useEffect } from 'react';
+// import { baseApiUrl } from '../../constants';
 import { useDropzone } from 'react-dropzone';
-import { addUploadedFile, removeUploadedFile } from '../../redux/images';
-import { useTranslations } from 'next-intl';
-import { useDispatch } from 'react-redux';
+import {addUploadedFile, removeUploadedFile, uploadDoneAction} from '../../redux/images';
+// import { useTranslations } from 'next-intl';
+import { useDispatch, useSelector } from 'react-redux';
+import { uploadPhotosAction } from "../../redux/images/actions";
+import { uploadFinish } from "../../redux/images/selectors";
+import {setActivePageAction} from "../../redux/layouts";
 // import { removeProductFileAction } from '../../redux/images/actions';
 
 const Photos: React.FC<any> = ({ productData, uploadedFiles, photos }) => {
-    const t = useTranslations();
+    // const t = useTranslations();
     const dispatch = useDispatch();
     const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
-    const [productPhotos, setProductPhotos] = useState(photos);
+    const uploadFinishStatus = useSelector(uploadFinish);
+    // const [productPhotos, setProductPhotos] = useState(photos);
     const removeFile = (file: File) => {
         dispatch(removeUploadedFile(file));
     };
@@ -19,20 +23,40 @@ const Photos: React.FC<any> = ({ productData, uploadedFiles, photos }) => {
         acceptedFiles.forEach((file: File) => {
             dispatch(addUploadedFile(file));
         });
+
+
+    }, [uploadedFiles]);
+
+    useEffect(() => {
+        if (acceptedFiles.length > 0) {
+            const formData = new FormData();
+            if (acceptedFiles.length) {
+                acceptedFiles.forEach((file: any) => {
+                    formData.append('photos[]', file);
+                });
+
+                dispatch(uploadPhotosAction(formData));
+            }
+        }
     }, [acceptedFiles]);
 
     useEffect(() => {
-        setProductPhotos(photos);
-    }, [photos]);
+        if (uploadFinishStatus) {
+            console.log('Finished files upload');
+            // dispatch(changeLayout('upload'));
+            dispatch(
+                setActivePageAction({
+                    type: 'images',
+                    modifier: 'list'
+                })
+            );
+            dispatch(uploadDoneAction(null));
+        }
+    }, [uploadFinishStatus]);
 
-    const removeProductFile = (file: string) => {
-        let _photos = productPhotos;
-        _photos = _photos.filter((_file: string) => _file !== file);
-        // ================
-        // dispatch(removeProductFileAction(file, productData.product.id));
-        // ================
-        setProductPhotos(_photos);
-    };
+    useEffect(() => {
+        // setProductPhotos(photos);
+    }, [photos]);
 
     return (
         <>
@@ -63,29 +87,6 @@ const Photos: React.FC<any> = ({ productData, uploadedFiles, photos }) => {
                                     />
                                 </li>
                             ))}
-                            {productPhotos.map(
-                                (_file: string, _index: React.Key | null | undefined) => (
-                                    <li key={_index}>
-                                        <img
-                                            src={
-                                                /(http(s?)):\/\//i.test(_file)
-                                                    ? _file
-                                                    : `${baseApiUrl}/${_file}`
-                                            }
-                                            alt=""
-                                            className="object-cover h-[85px]"
-                                        />
-                                        <span>{_file}</span> <em>&nbsp;</em>{' '}
-                                        <i
-                                            className="close"
-                                            role="presentation"
-                                            onClick={() => {
-                                                removeProductFile(_file);
-                                            }}
-                                        />
-                                    </li>
-                                )
-                            )}
                         </ul>
                     </aside>
                 )}

@@ -21,7 +21,7 @@ class Images {
             }
             const dataUser = {};
             if (req.file) {
-                dataUser.file = `/uploads/logos/${req.file.filename}`;
+                dataUser.file = `/uploads/photos/${req.file.filename}`;
             }
             return res.status(200).json({ success: true });
         });
@@ -39,16 +39,86 @@ class Images {
             } else {
                 offset = (Number(page) - 1) * Number(perPage);
             }
-            const res = await client.query(`SELECT * FROM common__tools.get_notifications(${perPage}, ${offset}, 'user_id=''${userId}'' AND is_read=${isRead}', 'created_at DESC')`);
-            const notifications = res.rows.length > 0 ? res.rows : [];
+            const rowsQuery = `SELECT * FROM data.get_images_list(${perPage}, ${offset}, '', 'created_at DESC');`;
+            console.log(rowsQuery);
+            const res = await client.query(rowsQuery);
+            const items = res.rows.length > 0 ? res.rows : [];
             const error = null;
-
             return {
-                notifications,
+                items,
                 size,
                 error
             };
         } catch (e) {
+            if (process.env.NODE_ENV === 'development') {
+                logger.log(
+                    'error',
+                    'Model error (Notifications getAll):',
+                    { message: e.message }
+                );
+            }
+            const items = null;
+            const error = {
+                code: 500,
+                message: 'Error get list of images',
+                error: e.message
+            };
+            return {
+                items,
+                error
+            };
+        } finally {
+            client.release();
+        }
+    }
+
+    async addPhoto(photo) {
+        const client = await pool.connect();
+        try {
+            await client.query(`INSERT INTO data.images (name) VALUES ('${photo}')`);
+            return {success: true, error: null};
+        } catch (e) {
+            if (process.env.NODE_ENV === 'development') {
+                logger.log(
+                    'error',
+                    'Model error:',
+                    { message: e.message }
+                );
+            }
+            return {success: false, error: e.message };
+        } finally {
+            client.release();
+        }
+    }
+
+    async addPhotos(photos) {
+        const client = await pool.connect();
+        // console.log('photos data', photos);
+        try {
+            const promisesQueries = [];
+            photos.map(photo => {
+                promisesQueries.push(this.addPhoto(photo));
+            })
+            if (promisesQueries.length) {
+                await Promise.all(promisesQueries);
+            }
+
+            // CREATE DATABASE mapkids_data
+            // WITH OWNER = mapkids_admin
+            // ENCODING = 'UTF8'
+            // TABLESPACE = pg_default
+            // LC_COLLATE = 'en_US.UTF-8'
+            // LC_CTYPE = 'en_US.UTF-8'
+            // CONNECTION LIMIT = -1;
+
+            const success = {
+                code: 200,
+            };
+            return {
+                success,
+            };
+        } catch (e) {
+            console.log(e);
             if (process.env.NODE_ENV === 'development') {
                 logger.log(
                     'error',

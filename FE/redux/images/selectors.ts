@@ -1,5 +1,4 @@
 import { createSelector } from 'reselect';
-import images from "./index";
 
 // ------------------------------------
 // Selectors
@@ -8,7 +7,10 @@ const rootSelector = createSelector(
     (state: State.Root) => state.images,
     (images: State.Images): State.Images => images
 );
-
+export const uploadFinish = createSelector(
+    rootSelector,
+    (images: State.Images): boolean | null => images.uploadDone
+);
 export const isFetchedSelector = createSelector(
     rootSelector,
     (images: State.Images): boolean => images.isFetched

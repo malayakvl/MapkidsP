@@ -11695,6 +11695,17 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
     background-color: #F1F1F1;
     border-color: #F1F1F1;
 }
+.btn-back {
+    color: #000;
+    background-color: #34B1AA;
+    border-color: #34B1AA;
+}
+
+.btn-back:hover {
+    color: #000;
+    background-color: #52bdb7;
+    border-color: #48b9b3;
+}
 
 .btn-success {
     color: #000;

@@ -10,6 +10,7 @@ import type { ReactElement, ReactNode } from "react";
 import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
 import { Provider as ReduxProvider } from "react-redux";
+// import { Toasts } from '../components/_common';
 import "react-toastify/dist/ReactToastify.css";
 import store from "../app/store";
 
@@ -72,6 +73,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
                 rel="stylesheet" />
           </Head>
           <Layout>
+            {/*<Toasts />*/}
             <Component {...pageProps} />
           </Layout>
         </NextIntlProvider>

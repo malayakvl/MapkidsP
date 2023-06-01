@@ -20,6 +20,9 @@ const Map = () => {
             zoom: 1.5,
             center: [-90, 40]
         });
+        map.on('style.load', () => {
+            map.setFog({}); // Set the default atmosphere style
+        });
 
         // mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_GL_ACCESS_TOKEN ?? 'pk.eyJ1IjoibWFsYXlha3ZsIiwiYSI6ImNsY3Jxb3FhdzBiY3Qzd3BjMDRzYjVvZmEifQ.asLancy_a5ZTUNZHVRCSaA';
         // map.current = new mapboxgl.Map({

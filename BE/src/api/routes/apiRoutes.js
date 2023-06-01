@@ -1,6 +1,6 @@
 import * as express from 'express';
-import TestController from '../controllers/TestController.js';
-import DashboardController from '../controllers/DashboardController.js';
+// import TestController from '../controllers/TestController.js';
+// import DashboardController from '../controllers/DashboardController.js';
 import ImageController from '../controllers/ImageController.js';
 import UserController from '../controllers/UserController.js';
 import SettingsController from '../controllers/SettingsController.js';
@@ -40,6 +40,7 @@ apiRoutes.use(async (req, res, next) => {
 apiRoutes.get('/settings/fetch-item', SettingsController.getSettingsData);
 apiRoutes.post('/settings', SettingsController.submitSettingsData);
 apiRoutes.get('/images/fetch-items', ImageController.fetchItems);
+apiRoutes.post('/images/upload-photos', ImageController.uploadImages);
 
 // apiRoutes.get('/profile', TestController.testData);
 apiRoutes.route('/profile')

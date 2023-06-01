@@ -1,13 +1,17 @@
+import pool from '../models/connect.js';
 import imagesModel from '../models/Images.js';
+import multer from 'multer';
+import SharpMulter from 'sharp-multer';
 
 class ImageController {
+    // async fetchItems (page, perPage = 25, user, isRead = false, reqOffset = null, filters, column, sort) {
     async fetchItems (req, res) {
+        const client = await pool.connect();
         const { limit, offset, queryFilter, column, sort } = req.query;
         if (!req.user) {
             return res.status(401).json('Access deny');
         } else {
-            // console.log('req.query = ', req.query);
-            const data = await imagesModel.getAll(1, limit, offset);
+            const data = await imagesModel.getAll(1, limit, offset, queryFilter, column, sort);
             return res.status(200).json({ count: data.size, items: data.items});
         }
     }
@@ -20,7 +24,7 @@ class ImageController {
             destination: function (req, file, cb) {
                 // cb(null, `public/uploads/products/${req.user.id}`);
                 // cb(null, './public/uploads/tmp');
-                cb(null, `${process.env.DOWNLOAD_FOLDER}/tmp`);
+                cb(null, `${process.env.DOWNLOAD_FOLDER}/photos`);
             },
             filename: function (req, file, cb) {
                 cb(null, Date.now() + '-' + file.originalname);
@@ -34,16 +38,15 @@ class ImageController {
             } else if (err) {
                 return res.status(500).json(err);
             }
-            const dataProduct = req.body;
+            // const dataProduct = req.body;
             const photos = [];
             if (req.files.length > 0) {
                 req.files.forEach(file => {
                     photos.push(file.filename);
                 });
             }
-            // dataProduct.photos = photos;
+            await imagesModel.addPhotos(photos);
 
-            await imagesModel.create(dataProduct, req.user.id);
 
             return res.status(200).json({ success: true });
         });

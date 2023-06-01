@@ -61,17 +61,6 @@ const DataTable: React.FC<Props> = ({
     const headers = TableHeaders[paginationType];
     let dropdownOptions = ['copy', 'delete'];
 
-    // if (paginationType === PaginationType.IMAGES && user.role_id === 3) {
-    //     delete headers[5];
-    // }
-    //
-    // if (paginationType === PaginationType.ORDERS && user.role_id === 2) {
-    //     dropdownOptions = ['shipped', 'cancel', 'download_pdf'];
-    // }
-    //
-    // if (paginationType === PaginationType.PAYMENTS && user.role_id === 2) {
-    //     dropdownOptions = ['download_pdf'];
-    // }
     const dispatch = useDispatch();
     const { limit, sort, column, offset, query, filters }: Layouts.Pagination = useSelector(
         paginationSelectorFactory(paginationType)
@@ -276,7 +265,7 @@ const DataTable: React.FC<Props> = ({
             </table>
             {!loading && !hidePaginationBar && (
                 <div className="flex justify-between min-w-max w-full mt-5 mb-10">
-                    <div className="w-16 mr-1">
+                    <div className="w-[75px] mr-1">
                         <select value={limit} onChange={setLimit} className="form-control">
                             <option value={10}>10</option>
                             <option value={25}>25</option>

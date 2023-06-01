@@ -13,12 +13,10 @@ class UserController {
         delete user.password;
         delete user.hash;
         delete user.expired_at;
-
         let response = {
             ...user,
             user: user
         }
-
         return res.status(200).json(response);
     }
 

@@ -1,8 +1,9 @@
-import { handleActions } from "redux-actions";
+import { Action, handleActions } from "redux-actions";
 import {
   fetchItemsAction,
   addUploadedFile,
-  removeUploadedFile
+  removeUploadedFile,
+  uploadDoneAction
 } from "./actions";
 
 const initialState: {
@@ -13,6 +14,7 @@ const initialState: {
   loading: boolean;
   items: any[];
   image: any;
+  uploadDone: any;
 } = {
   items: [],
   loading: false,
@@ -20,7 +22,8 @@ const initialState: {
   uploadedFiles: [],
   checkedIds: [],
   count: 0,
-  image: null
+  image: null,
+  uploadDone:null
 };
 
 const ACTION_HANDLERS: any = {
@@ -56,13 +59,19 @@ const ACTION_HANDLERS: any = {
       )
     };
   },
-
+  [uploadDoneAction]: {
+    next: (state: State.Images, action: Action<boolean>): State.Images => ({
+      ...state,
+      uploadDone: action.payload,
+    }),
+  },
 };
 
 export {
   fetchItemsAction,
   addUploadedFile,
-  removeUploadedFile
+  removeUploadedFile,
+  uploadDoneAction
 };
 
 // ------------------------------------

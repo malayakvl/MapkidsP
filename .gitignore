@@ -117,3 +117,5 @@ FE/.env
 /BE/package-lock.json
 /DELETED/
 /FE/DELETE/
+/BE/public/uploads/tmp/
+/BE/public/uploads/

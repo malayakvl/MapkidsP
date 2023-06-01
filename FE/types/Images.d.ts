@@ -7,6 +7,7 @@ declare namespace Images {
         count: number;
         image: ImageItem;
         items: ImageItem[];
+        uploadDone: boolean | null;
     }
 
     interface ImageItem {

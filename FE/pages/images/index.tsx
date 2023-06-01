@@ -19,13 +19,13 @@ export default function Index({ session, locale }: { session: any; locale: strin
     const activeLayout = activeTabLayout;
 
     useEffect(() => {
-        // dispatch(fetchAdditionalAction());
+        // dispatch(fetch());
         dispatch(setSwitchHeaderAction(null));
     }, []);
 
-    // const handleClick = () => {
-    //     (hiddenFileInput as any).current.click();
-    // };
+    const handleClick = () => {
+        (hiddenFileInput as any).current.click();
+    };
 
     const changeLayout = (type: string) => {
         dispatch(
@@ -36,7 +36,6 @@ export default function Index({ session, locale }: { session: any; locale: strin
         );
     };
 
-
     return (
         <>
             <Head>
@@ -45,7 +44,13 @@ export default function Index({ session, locale }: { session: any; locale: strin
             </Head>
 
             <h2 className="mt-10 text-lg font-medium intro-y">
-                {t('Images')}
+                {activeLayout.tab  !== 'list' && <span onClick={() => dispatch(
+                    setActivePageAction({
+                        type: 'images',
+                        modifier: 'list'
+                    })
+                )} className="cursor-pointer inline-block pl-[30px] text-[12px] mr-[10px] back-arrow" />}
+                Images Gallery
             </h2>
             {activeLayout.tab === 'list' ? (
                 <>
@@ -56,7 +61,7 @@ export default function Index({ session, locale }: { session: any; locale: strin
                                 className="transition duration-200 border inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&amp;:hover:not(:disabled)]:bg-opacity-90 [&amp;:hover:not(:disabled)]:border-opacity-90 [&amp;:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed bg-primary border-primary text-white dark:border-primary mr-2 shadow-md"> Add
                                 Upload New Images
                             </button>
-                            <div className="hidden mx-auto md:block text-slate-500"> Showing 1 to 4 of 4 entries</div>
+                            {/*<div className="hidden mx-auto md:block text-slate-500"> Showing 1 to {count} of {count} entries</div>*/}
                         </div>
                     </div>
                     <ListItems locale={locale} />
@@ -66,11 +71,6 @@ export default function Index({ session, locale }: { session: any; locale: strin
                     <Photos uploadedFiles={[]} photos={[]} />
                 </>
             )}
-            {/*<div className="block-white-8 mr-10 white-shadow-medium mt-10">*/}
-            {/*    <div className="tabs-content">*/}
-            {/*        <ListItems locale={locale} />*/}
-            {/*    </div>*/}
-            {/*</div>*/}
         </>
     );
 }
@@ -96,3 +96,5 @@ export async function getServerSideProps(context: any) {
         }
     };
 }
+
+
