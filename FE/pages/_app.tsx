@@ -10,7 +10,7 @@ import type { ReactElement, ReactNode } from "react";
 import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
 import { Provider as ReduxProvider } from "react-redux";
-// import { Toasts } from '../components/_common';
+import { Toasts } from '../components/_common';
 import "react-toastify/dist/ReactToastify.css";
 import store from "../app/store";
 
@@ -71,6 +71,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
             <link
                 href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap"
                 rel="stylesheet" />
+            <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet" />
+            <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js" />
           </Head>
           <Layout>
             {/*<Toasts />*/}

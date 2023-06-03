@@ -7,6 +7,8 @@ declare namespace State {
     settings: Settings;
     user: User;
     images: Images;
+    videos: Videos;
+    images: Images;
     userRequests: UserRequests;
 
   }
@@ -14,6 +16,7 @@ declare namespace State {
   type Layouts = Layouts.Root;
   type Profile = Profile.Root;
   type Images = Images.Root;
+  type Videos = Videos.Root;
   type User = User.Root;
   type Settings = Settings.Root;
 }

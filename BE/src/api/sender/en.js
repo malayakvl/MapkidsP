@@ -9,21 +9,6 @@ export default {
   "Hello": "Hello",
   "link": "link",
 
-  // "Amadeo CRM - restore password": "Amadeo CRM - restore password",
-  // "You can use following": "You can use following",
-  // "for continue": "for continue",
-
-  // "Good luck!": "Good luck!",
-
-  // "Welcome at Proshop": "Welcome at Proshop",
-  // "Here’s the verification link": "Here’s the verification link",
-  // "Confirmation Link": "Confirmation Link",
-  // "Please, complete the registration via this link": "Please, complete the registration via this link",
-  // "Go To Proshop": "Go To Proshop",
-  // "That's it. Enjoy": "That's it. Enjoy",
-
-  // "Your email was successfully verified!": "Your email was successfully verified!",
-
   "Your message has been sent to support!": "Your message has been sent to support!",
 
   "Support message from": "Support message from",

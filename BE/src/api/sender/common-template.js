@@ -21,7 +21,7 @@ export const emailHtml = (translate = translateDefault, content = '') => `<!doct
           font-size: 28px !important;
           margin-bottom: 10px !important;
         }
-      
+
         table[class=body] p,
       table[class=body] ul,
       table[class=body] ol,
@@ -30,35 +30,35 @@ export const emailHtml = (translate = translateDefault, content = '') => `<!doct
       table[class=body] a {
           font-size: 16px !important;
         }
-      
+
         table[class=body] .wrapper,
       table[class=body] .article {
           padding: 10px !important;
         }
-      
+
         table[class=body] .content {
           padding: 0 !important;
         }
-      
+
         table[class=body] .container {
           padding: 0 !important;
           width: 100% !important;
         }
-      
+
         table[class=body] .main {
           border-left-width: 0 !important;
           border-radius: 0 !important;
           border-right-width: 0 !important;
         }
-      
+
         table[class=body] .btn table {
           width: 100% !important;
         }
-      
+
         table[class=body] .btn a {
           width: 100% !important;
         }
-      
+
         table[class=body] .img-responsive {
           height: auto !important;
           max-width: 100% !important;
@@ -69,7 +69,7 @@ export const emailHtml = (translate = translateDefault, content = '') => `<!doct
         .ExternalClass {
           width: 100%;
         }
-      
+
         .ExternalClass,
       .ExternalClass p,
       .ExternalClass span,
@@ -78,7 +78,7 @@ export const emailHtml = (translate = translateDefault, content = '') => `<!doct
       .ExternalClass div {
           line-height: 100%;
         }
-      
+
         .apple-link a {
           color: inherit !important;
           font-family: inherit !important;
@@ -87,11 +87,11 @@ export const emailHtml = (translate = translateDefault, content = '') => `<!doct
           line-height: inherit !important;
           text-decoration: none !important;
         }
-      
+
         .btn-primary table td:hover {
           background-color: #d5075d !important;
         }
-      
+
         .btn-primary a:hover {
           background-color: #d5075d !important;
           border-color: #d5075d !important;
@@ -139,7 +139,7 @@ export const emailHtml = (translate = translateDefault, content = '') => `<!doct
 <!--
                 <tr>
                   <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; color: #9a9ea6; font-size: 12px; text-align: center;" valign="top" align="center">
-                    <span class="apple-link" style="color: #9a9ea6; font-size: 12px; text-align: center;">${translate["Amadeo"]}</span>
+                    <span class="apple-link" style="color: #9a9ea6; font-size: 12px; text-align: center;">${translate["Mapkids"]}</span>
                     <br> And <a href="https://postdrop.io" style="text-decoration: underline; color: #9a9ea6; font-size: 12px; text-align: center;">unsubscribe link</a> here.
                   </td>
                 </tr>

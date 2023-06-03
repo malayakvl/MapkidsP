@@ -1,25 +1,20 @@
 import Head from 'next/head';
 import { getSession } from "next-auth/react";
 import React, { useEffect, useRef } from 'react';
-import { useTranslations } from 'next-intl';
 import { useDispatch, useSelector } from 'react-redux';
-import { ListItems, Photos } from '../../components/Images';
+import { ImageUrl, ListItems, Photos } from '../../components/Images';
 import { activeTabSelectorFactory } from '../../redux/layouts/selectors';
 import { setSwitchHeaderAction, setActivePageAction } from '../../redux/layouts/actions';
 import BackendLayout from "../../components/Layout/BackendLayout";
-import { itemCountSelector } from "../../redux/images/selectors";
 
 export default function Index({ session, locale }: { session: any; locale: string }) {
     if (!session) return <></>;
-    const count = useSelector(itemCountSelector);
-    const t = useTranslations();
     const dispatch = useDispatch();
     const activeTabLayout = useSelector(activeTabSelectorFactory('images'));
     const hiddenFileInput = useRef(null);
     const activeLayout = activeTabLayout;
 
     useEffect(() => {
-        // dispatch(fetch());
         dispatch(setSwitchHeaderAction(null));
     }, []);
 
@@ -31,7 +26,7 @@ export default function Index({ session, locale }: { session: any; locale: strin
         dispatch(
             setActivePageAction({
                 type: 'images',
-                modifier: 'upload'
+                modifier: type
             })
         );
     };
@@ -50,27 +45,29 @@ export default function Index({ session, locale }: { session: any; locale: strin
                         modifier: 'list'
                     })
                 )} className="cursor-pointer inline-block pl-[30px] text-[12px] mr-[10px] back-arrow" />}
-                Images Gallery
+                Images List
             </h2>
-            {activeLayout.tab === 'list' ? (
+            {activeLayout.tab === 'list' && (
                 <>
                     <div className="grid grid-cols-12 gap-6 mt-5">
                         <div className="flex flex-wrap items-center col-span-12 mt-2 intro-y sm:flex-nowrap">
                             <button
                                 onClick={() => changeLayout('upload')}
-                                className="transition duration-200 border inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 focus-visible:outline-none dark:focus:ring-slate-700 dark:focus:ring-opacity-50 [&amp;:hover:not(:disabled)]:bg-opacity-90 [&amp;:hover:not(:disabled)]:border-opacity-90 [&amp;:not(button)]:text-center disabled:opacity-70 disabled:cursor-not-allowed bg-primary border-primary text-white dark:border-primary mr-2 shadow-md"> Add
+                                className="btn bg-purple-800 inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer text-white shadow-md mr-[10px]">
                                 Upload New Images
                             </button>
-                            {/*<div className="hidden mx-auto md:block text-slate-500"> Showing 1 to {count} of {count} entries</div>*/}
+                            <button
+                                onClick={() => changeLayout('url')}
+                                className="btn bg-purple-800 inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer text-white shadow-md mr-[10px]">
+                                Add Throw URL
+                            </button>
                         </div>
                     </div>
                     <ListItems locale={locale} />
                 </>
-            ) : (
-                <>
-                    <Photos uploadedFiles={[]} photos={[]} />
-                </>
             )}
+            {activeLayout.tab === 'photo' && <><Photos uploadedFiles={[]} photos={[]} /></>}
+            {activeLayout.tab === 'url' && <><ImageUrl /></>}
         </>
     );
 }
@@ -82,7 +79,7 @@ export async function getServerSideProps(context: any) {
 
     if (!session) {
         return {
-            redirect: { destination: `/${locale === 'fr' ? '' : `${locale}/`}auth/signin` }
+            redirect: { destination: `/auth/signin` }
         };
     }
 
@@ -96,5 +93,3 @@ export async function getServerSideProps(context: any) {
         }
     };
 }
-
-

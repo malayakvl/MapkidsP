@@ -1,6 +1,5 @@
 import * as Yup from "yup";
 import React, { useRef, useState } from "react";
-// import Image from "next/image";
 import { InputText, TogglePassword } from "../_form";
 import { Formik } from "formik";
 import { useEffect } from "react";
@@ -8,9 +7,6 @@ import { getSession } from "next-auth/react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProfileAction, updateProfileAction } from "../../redux/profile";
 import { userSelector } from "../../redux/user/selectors";
-// import { baseApiUrl } from "../../constants";
-// import { baseApiUrl } from '../../constants';
-// import { userSelector } from '../../redux/user/selectors';
 import { changePasswordAction } from "../../redux/profile";
 import {
   existEmailSelector,

@@ -40,6 +40,22 @@ const initialState: State.Layouts = {
         created_at: []
       }
     },
+    [PaginationType.VIDEOS]: {
+      ...initPagination,
+      sort: "DESC",
+      column: "created_at",
+      filters: {
+        created_at: []
+      }
+    },
+    [PaginationType.ARTICLES]: {
+      ...initPagination,
+      sort: "DESC",
+      column: "created_at",
+      filters: {
+        created_at: []
+      }
+    },
   },
   toggleMenu: false,
   checkedIds: [],
@@ -54,7 +70,9 @@ const initialState: State.Layouts = {
   modalConfirmationMeta: null,
   submenuDisplayStatus: [],
   activeTab: {
-    images: { tab: 'list' }
+    images: { tab: 'list' },
+    articles: { tab: 'list' },
+    videos: { tab: 'list' }
   }
 };
 

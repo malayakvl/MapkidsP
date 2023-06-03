@@ -1,6 +1,6 @@
 label {
     //font-family: 'Inter', serif;
-    font-family: 'Raleway', serif;
+    font-family: 'Montserrat', serif;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -11,7 +11,7 @@ label {
 
 .page-description {
     //font-family: 'Inter', serif;
-    font-family: 'Raleway', serif;
+    font-family: 'Montserrat', serif;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -30,14 +30,14 @@ label {
     width: 100%;
     height: 40px;
     background: #F8F9FB;
-    border: 1px solid #F3F3F3;
+    border: 1px solid #0f172a;
     border-radius: 8px !important;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
     color: #3D3E52;
-    font-family: 'Raleway', serif;
+    font-family: 'Montserrat', serif;
 
     &:focus, &:active {
         box-shadow: none;
@@ -49,7 +49,7 @@ textarea.form-control {
     resize: none;
     height: 81px;
     padding: 10px 40px 10px 20px;
-    font-family: 'Raleway', serif;
+    font-family: 'Montserrat', serif;
 }
 
 ::placeholder {
@@ -59,7 +59,7 @@ textarea.form-control {
     color: rgba(0, 0, 0, 0.5);
     color: red;
     //font-family: 'Inter', serif;
-    font-family: 'Raleway', serif;
+    font-family: 'Montserrat', serif;
 
 }
 
@@ -78,36 +78,6 @@ textarea.form-control {
         cursor: pointer;
     }
 
-    .red-picker {
-        width: 13px;
-        background-image: url(../../public/images/red-picker.svg);
-    }
-    .yellow-picker {
-        width: 17px;
-        background-image: url(../../public/images/yellow-picker.svg);
-    }
-
-    .palette-picker {
-        background-image: url(../../public/images/color-picker.svg) !important;
-        background-position: left;
-        width: 15px;
-        height: 13px;
-        position: absolute;
-        right: 15px;
-        z-index: 1000000;
-        top: 13px;
-    }
-    .custom-picker, .pickr {
-        //background-image: url(../../public/images/color-picker.svg) !important;
-        background-position: left;
-        width: 15px;
-        height: 13px;
-        position: absolute !important;
-        right: 15px;
-        z-index: 999;
-        top: 13px;
-    }
-
     .color-control {
         padding-left: 30px;
     }
@@ -124,10 +94,6 @@ textarea.form-control {
 }
 
 
-.red-picker {
-    background-image: url(../../public/images/red-picker.svg);
-    background-position: left;
-}
 
 .error-el {
     font-size:10px;
@@ -168,7 +134,7 @@ textarea.form-control {
     //margin-top: 4px;
     margin-top: 9px;
     margin-right: 12px;
-    font-family: "Raleway", serif;
+    font-family: "Montserrat", serif;
 }
 
 .form-tips {
@@ -184,36 +150,6 @@ textarea.form-control {
     top: 5px;
     right: 10px;
     cursor:pointer;
-}
-
-.clr-picker {
-    z-index: 999999 !important;
-}
-.clr-field {
-    button {
-        background-image: url(../../public/images/color-picker.svg) !important;
-        background-position: center !important;
-        background-size: auto !important;
-        width: 49px !important;
-        background-repeat: no-repeat;
-        border-radius: 0 8px 8px 0;
-        z-index: 80;
-        cursor: pointer;
-    }
-}
-.coloris {
-    width: 380px;
-}
-.color-control {
-    z-index: 9999999;
-}
-
-.my-dropzone {
-    border: 1px dashed #ED5829;
-    width: 360px;
-    height: 164px;
-    border-radius: 8px;
-    text-align: center;
 }
 
 .form-textarea {
@@ -240,7 +176,7 @@ h4.form-header {
     margin: 24px 0;
     cursor:pointer;
     //font-family: 'Inter', serif;
-    font-family: 'Raleway', serif;
+    font-family: 'Montserrat', serif;
 
 
     span {
@@ -260,18 +196,13 @@ h4.form-header {
     top: 50px;
     z-index: 99999;
     cursor: pointer;
-
-    //@include less($large) {
-    //    top:60px;
-    //}
-
     &:hover {
         color: #ED5829;
     }
 }
 
 .textarea-data-value {
-    font-family: 'Raleway', serif;
+    font-family: 'Montserrat', serif;
     background: #FFFFFF;
     box-shadow: 0 4px 14px 2px rgba(0, 0, 0, 0.06);
     border-radius: 10px;

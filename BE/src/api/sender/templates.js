@@ -48,10 +48,6 @@ export const welcomeEmail = async (email = '', link = '', locale = localeDefault
 
 export const registerEmail = async (email = '', locale = localeDefault) => {
   const { default: t } = await import(`../sender/${locale}.js`);
-  // remove from letter cuz user already created
-  // <p>
-  //   ${t['To access your account and complete your Profile, click on the link below']}: <a href='${frontUrl}'>${t['Click for confirmation']}</a>
-  // </p>
 
   return {
     subject: t['Confirmation registration'],
@@ -60,7 +56,7 @@ export const registerEmail = async (email = '', locale = localeDefault) => {
     <p>
       ${t['Thank you for joining Live Pro Shop']}. ${t['Your account has been created']}.
     </p>
-    
+
     <p>
       ${t['If you are having trouble logging into your account, contact us at']} info@strategykiln.com
     </p>

@@ -23816,6 +23816,7 @@ select.border-dark.tt-hint:focus {
 .form-group .file-upload-info {
     background: transparent;
 }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
 
 .map-container {
     position: relative;

@@ -7,14 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { uploadPhotosAction } from "../../redux/images/actions";
 import { uploadFinish } from "../../redux/images/selectors";
 import {setActivePageAction} from "../../redux/layouts";
-// import { removeProductFileAction } from '../../redux/images/actions';
 
-const Photos: React.FC<any> = ({ productData, uploadedFiles, photos }) => {
-    // const t = useTranslations();
+const Photos: React.FC<any> = ({ uploadedFiles, photos }) => {
     const dispatch = useDispatch();
     const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
     const uploadFinishStatus = useSelector(uploadFinish);
-    // const [productPhotos, setProductPhotos] = useState(photos);
     const removeFile = (file: File) => {
         dispatch(removeUploadedFile(file));
     };
@@ -23,8 +20,6 @@ const Photos: React.FC<any> = ({ productData, uploadedFiles, photos }) => {
         acceptedFiles.forEach((file: File) => {
             dispatch(addUploadedFile(file));
         });
-
-
     }, [uploadedFiles]);
 
     useEffect(() => {
@@ -34,7 +29,6 @@ const Photos: React.FC<any> = ({ productData, uploadedFiles, photos }) => {
                 acceptedFiles.forEach((file: any) => {
                     formData.append('photos[]', file);
                 });
-
                 dispatch(uploadPhotosAction(formData));
             }
         }
@@ -42,8 +36,6 @@ const Photos: React.FC<any> = ({ productData, uploadedFiles, photos }) => {
 
     useEffect(() => {
         if (uploadFinishStatus) {
-            console.log('Finished files upload');
-            // dispatch(changeLayout('upload'));
             dispatch(
                 setActivePageAction({
                     type: 'images',
@@ -53,10 +45,6 @@ const Photos: React.FC<any> = ({ productData, uploadedFiles, photos }) => {
             dispatch(uploadDoneAction(null));
         }
     }, [uploadFinishStatus]);
-
-    useEffect(() => {
-        // setProductPhotos(photos);
-    }, [photos]);
 
     return (
         <>

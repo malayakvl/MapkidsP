@@ -97,5 +97,13 @@
   text-align: right !important;
 }
 
-
-
+.list-data-table th {
+    text-transform: uppercase;
+    padding-left: 15px;
+}
+.list-data-table th.actions {
+    text-align: center !important;
+}
+.list-data-table th.active {
+    text-align: center !important;
+}

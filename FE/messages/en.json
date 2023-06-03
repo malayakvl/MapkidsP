@@ -1,5 +1,8 @@
 {
   "Actions": "Actions",
-  "image": "image",
-  "Images": "Images"
+  "image": "Image",
+  "Images": "Images",
+  "created_at": "Created At",
+  "title": "Title",
+  "active": "Active"
 }

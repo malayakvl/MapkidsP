@@ -9,6 +9,8 @@ import settingsReducer from "../redux/settings/index";
 import layoutsReducer from "../redux/layouts/index";
 import profileReducer from "../redux/profile/index";
 import imagesReducer from "../redux/images/index";
+import articlesReducer from "../redux/articles/index";
+// import videosReducer from "../redux/videos/index";
 
 import logger from "redux-logger";
 
@@ -17,7 +19,10 @@ const reducers = combineReducers({
   layouts: layoutsReducer,
   user: userReducer,
   settings: settingsReducer,
-  images: imagesReducer
+  images: imagesReducer,
+  articles: articlesReducer
+  // videos: videosReducer,
+  // articles: articlesReducer
 });
 
 const initStore = (initialState = {}) => {

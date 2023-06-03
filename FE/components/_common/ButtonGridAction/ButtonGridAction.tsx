@@ -10,7 +10,7 @@ interface Props {
 }
 
 // eslint-disable-next-line react/display-name
-const ButtonTableAction: React.FC<Props> = memo(
+const ButtonGridAction: React.FC<Props> = memo(
   ({
     className = "",
     disabled = false,
@@ -33,4 +33,4 @@ const ButtonTableAction: React.FC<Props> = memo(
   }
 );
 
-export default ButtonTableAction;
+export default ButtonGridAction;

@@ -44,17 +44,6 @@
 	}
 }
 
-@mixin background-gradient-and-image ($fallback, $imgUrl, $background-position-x, $background-position-y, $startColor, $endColor) {
-    background: $fallback;
-    background: url($imgUrl) $background-position-x $background-position-y no-repeat; /* fallback */
-    background: url($imgUrl) $background-position-x $background-position-y no-repeat, -webkit-gradient(linear, left top, left bottom, from($startColor) $background-position-x $background-position-y no-repeat, to($endColor)); /* Saf4+, Chrome */
-    background: url($imgUrl) $background-position-x $background-position-y no-repeat, -webkit-linear-gradient(top, $startColor, $endColor); /* Chrome 10+, Saf5.1+ */
-    background: url($imgUrl) $background-position-x $background-position-y no-repeat,    -moz-linear-gradient(top, $startColor, $endColor); /* FF3.6+ */
-    background: url($imgUrl) $background-position-x $background-position-y no-repeat,     -ms-linear-gradient(top, $startColor, $endColor); /* IE10 */
-    background: url($imgUrl) $background-position-x $background-position-y no-repeat,      -o-linear-gradient(top, $startColor, $endColor); /* Opera 11.10+ */
-    background: url($imgUrl) $background-position-x $background-position-y no-repeat,         linear-gradient(top, $startColor, $endColor); /* W3C */
-}
-
 @mixin extra-small  {
 	@media (max-width: #{$extra-small}) {
 		@content;

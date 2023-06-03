@@ -6,7 +6,7 @@ import BackendLayout from "../../components/Layout/BackendLayout";
 import { Formik } from "formik";
 import Head from "next/head";
 import Image from "next/image";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import "../../styles/global-backend.scss";
 import { useEffect } from "react";
 
@@ -43,7 +43,7 @@ function Signin() {
               <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white border-0">
                 <div className="flex-auto px-4 lg:px-10 pt-10 py-5" style={{background:'#f5f5f5', borderRadius: '10px'}}>
                   <div className="text-center">
-                    <img src="../../images/backend/kids.jpeg" style={{height: '200px', margin: '0px auto'}} />
+                    <Image src="/images/backend/kids.jpeg" alt="Map Kids" style={{height: '100px', margin: '0px auto'}}  width={100} height={100} />
                     <b>MAPKIDS</b></div>
                   {query.authError && (
                     <div className="error-el" style={{ right: "40px" }}>

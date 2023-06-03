@@ -2,6 +2,7 @@ import * as express from 'express';
 // import TestController from '../controllers/TestController.js';
 // import DashboardController from '../controllers/DashboardController.js';
 import ImageController from '../controllers/ImageController.js';
+import ArticleController from '../controllers/ArticleController.js';
 import UserController from '../controllers/UserController.js';
 import SettingsController from '../controllers/SettingsController.js';
 import userModel from '../models/User.js';
@@ -13,12 +14,6 @@ apiRoutes.use(express.json({
     limit: '512kb',
     strict: true
 }));
-
-// apiRoutes.route('/post-test').get(TestController.testData);
-// apiRoutes.route('/post-test').post(TestController.testData);
-// apiRoutes.route('/upload').post(TestController.uploadFile);
-// apiRoutes.route('/saveSlideData').post(SlideController.submitSlideData);
-// apiRoutes.route('/upload-logo').post(SlideController.uploadLogo);
 
 
 /** ===================================================================== */
@@ -39,10 +34,21 @@ apiRoutes.use(async (req, res, next) => {
 });
 apiRoutes.get('/settings/fetch-item', SettingsController.getSettingsData);
 apiRoutes.post('/settings', SettingsController.submitSettingsData);
+/** ===================================================================== */
+/** ================== IMAGES ROUTES ==================================== */
+/** ===================================================================== */
 apiRoutes.get('/images/fetch-items', ImageController.fetchItems);
+// apiRoutes.post('/images/bulk-delete', ImageController.bulkDelete);
 apiRoutes.post('/images/upload-photos', ImageController.uploadImages);
 
-// apiRoutes.get('/profile', TestController.testData);
+/** ===================================================================== */
+/** ================== ARTICLES ROUTES ================================== */
+/** ===================================================================== */
+apiRoutes.get('/articles/fetch-items', ArticleController.fetchItems);
+// apiRoutes.get('/articles/fetch-item', ArticleController.fetchItem);
+// apiRoutes.post('/articles/edit-item', ArticleController.editItem);
+// apiRoutes.post('/articles/bulk-delete', ArticleController.bulkDelete);
+
 apiRoutes.route('/profile')
     .post(UserController.changePassword)
     .get(UserController.getProfile);

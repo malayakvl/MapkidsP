@@ -67,7 +67,7 @@ const DataTable: React.FC<Props> = ({
     );
     const [loading, setLoading] = useState(true);
     const [allChecked, setAllChecked] = useState(false);
-    // const [selectBulkAction, setSelectBulkAction] = useState(null);
+    const [selectBulkAction, setSelectBulkAction] = useState(null);
 
     useEffect(() => {
         sendRequest().finally(() => {
@@ -259,7 +259,7 @@ const DataTable: React.FC<Props> = ({
 
     return (
         <div className="overflow-x-scroll">
-            <table className="w-full text-left border-spacing-y-[10px] border-separate -mt-2">
+            <table className="w-full text-left border-spacing-y-[10px] border-separate -mt-2 list-data-table">
                 <thead>{renderTableHeader()}</thead>
                 <tbody>{renderTableBody()}</tbody>
             </table>

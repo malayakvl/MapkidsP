@@ -2,6 +2,8 @@ declare namespace Layouts {
   interface Root {
     pagination: {
       images: Pagination;
+      videos: Pagination;
+      articles: Pagination;
     };
     toggleMenu: boolean;
     checkedIds: CheckedIds[];
@@ -17,6 +19,8 @@ declare namespace Layouts {
     submenuDisplayStatus: any;
     activeTab: {
       images: TabTypes;
+      articles: TabTypes;
+      videos: TabTypes;
     };
   }
 

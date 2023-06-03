@@ -97,47 +97,12 @@ export default function Dashboard({ session }: { session: any }) {
                           Sales
                       </div>
                   </div>
-                  <div className="flex items-center px-4 py-4 mb-3 box zoom-in">
-                      <div className="flex-none w-10 h-10 overflow-hidden rounded-md image-fit">
-                          <img
-                              alt="Midone Tailwind HTML Admin Template" src="/images/backend/dashboard/123.webp" />
-                      </div>
-                      <div className="ml-4 mr-auto">
-                          <div className="font-medium">Arnold Schwarzenegger</div>
-                          <div className="text-slate-500 text-xs mt-0.5">04 May 2022</div>
-                      </div>
-                      <div
-                          className="px-2 py-1 text-xs font-medium text-white rounded-full cursor-pointer bg-success"> 137
-                          Sales
-                      </div>
-                  </div>
-                  <div className="flex items-center px-4 py-4 mb-3 box zoom-in">
-                      <div className="flex-none w-10 h-10 overflow-hidden rounded-md image-fit">
-                          <img
-                              alt="Midone Tailwind HTML Admin Template" src="/images/backend/dashboard/123.webp" />
-                      </div>
-                      <div className="ml-4 mr-auto">
-                          <div className="font-medium">Arnold Schwarzenegger</div>
-                          <div className="text-slate-500 text-xs mt-0.5">04 May 2022</div>
-                      </div>
-                      <div
-                          className="px-2 py-1 text-xs font-medium text-white rounded-full cursor-pointer bg-success"> 137
-                          Sales
-                      </div>
-                  </div>
-                  <div className="flex items-center px-4 py-4 mb-3 box zoom-in">
-                      <div className="flex-none w-10 h-10 overflow-hidden rounded-md image-fit">
-                          <img
-                              alt="Midone Tailwind HTML Admin Template" src="/images/backend/dashboard/123.webp" />
-                      </div>
-                      <div className="ml-4 mr-auto">
-                          <div className="font-medium">Arnold Schwarzenegger</div>
-                          <div className="text-slate-500 text-xs mt-0.5">04 May 2022</div>
-                      </div>
-                      <div
-                          className="px-2 py-1 text-xs font-medium text-white rounded-full cursor-pointer bg-success"> 137
-                          Sales
-                      </div>
+                  <div>
+                      <iframe width="100%" height="209" src="https://www.youtube.com/embed/DFejhPTdfS4"
+                              title="IBIZA SUMMER MIX 2022🍓Best Of Tropical Deep House Music Chill Out Mix 2022🍓Ambient Chillout Lounge"
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              allowFullScreen></iframe>
                   </div>
               </div>
 

@@ -77,8 +77,10 @@ export default function Sidebar() {
                         <img src="../../images/backend/dashboard/youtube.svg" width={24} height={24} />
                     </div>
                     <div className="hidden xl:flex items-center w-full ml-3 text-slate-800 font-medium text-white">
-                        Videos
-                        <div className="transition ease-in duration-100 ml-auto mr-5 hidden xl:block"></div>
+                        <Link href={`/images`}>
+                            Videos
+                            <div className="transition ease-in duration-100 ml-auto mr-5 hidden xl:block"></div>
+                        </Link>
                     </div>
                 </div>
             </li>
@@ -88,22 +90,13 @@ export default function Sidebar() {
                         <img src="../../images/backend/dashboard/icon1.svg" width={24} height={24} />
                     </div>
                     <div className="hidden xl:flex items-center w-full ml-3 text-slate-800 font-medium text-white">
-                        Articles
-                        <div className="transition ease-in duration-100 ml-auto mr-5 hidden xl:block"></div>
+                        <Link href={`/articles`}>
+                            Articles
+                            <div className="transition ease-in duration-100 ml-auto mr-5 hidden xl:block"></div>
+                        </Link>
                     </div>
                 </div>
             </li>
-            {/*<li>*/}
-            {/*    <div className="cursor-pointer h-[50px] flex items-center pl-5 text-white mb-1 relative rounded-full z-10 before:content-[''] before:w-[30px] before:h-[30px] before:-mt-[30px] before:rotate-90 before:scale-[1.04] before:bg-[length:100%] before:absolute before:top-0 before:right-0 before:-mr-5 after:content-[''] after:w-[30px] after:h-[30px] after:mt-[50px] after:scale-[1.04] after:bg-[length:100%] after:absolute after:top-0 after:right-0 after:-mr-5 md:flex">*/}
-            {/*        <div className="text-primary before:content-[''] before:z-[-1] before:absolute before:top-0 before:right-0 before:-mr-5 before:w-12 before:h-full ">*/}
-            {/*            <img src="../../images/backend/dashboard/youtube.svg" width={24} height={24} />*/}
-            {/*        </div>*/}
-            {/*        <div className="hidden xl:flex items-center w-full ml-3 text-slate-800 font-medium text-white">*/}
-            {/*            Videos*/}
-            {/*            <div className="transition ease-in duration-100 ml-auto mr-5 hidden xl:block"></div>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</li>*/}
         </ul>
     </nav>
   );
