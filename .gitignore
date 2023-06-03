@@ -119,3 +119,4 @@ FE/.env
 /FE/DELETE/
 /BE/public/uploads/tmp/
 /BE/public/uploads/
+/data/
