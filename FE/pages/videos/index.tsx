@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { getSession } from "next-auth/react";
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ListItems, VideoForm } from '../../components/Videos';
 import { activeTabSelectorFactory } from '../../redux/layouts/selectors';
