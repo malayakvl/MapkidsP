@@ -12,7 +12,7 @@ export default function Index({ session, locale }: { session: any; locale: strin
     // const count = useSelector(itemCountSelector);
     const dispatch = useDispatch();
     const activeTabLayout = useSelector(activeTabSelectorFactory('videos'));
-    const hiddenFileInput = useRef(null);
+    // const hiddenFileInput = useRef(null);
     const activeLayout = activeTabLayout;
 
     useEffect(() => {

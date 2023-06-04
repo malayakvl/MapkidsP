@@ -1,11 +1,10 @@
-import React, { useCallback, useEffect, useState, Fragment } from 'react';
+import React, { useCallback, useEffect, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslations } from 'next-intl';
 import { DataGrid, ButtonTableAction } from '../../components/_common';
 import { PaginationType } from '../../constants';
 import {
     checkedIdsSelector,
-    paginationSelectorFactory
 } from '../../redux/layouts/selectors';
 import { checkIdsAction, initIdsAction } from '../../redux/layouts';
 import {
@@ -18,8 +17,8 @@ import {
 } from '../../redux/images/actions';
 import { baseApiUrl } from '../../constants';
 import { setModalConfirmationMetaAction } from '../../redux/layouts';
-import { setActivePageAction } from '../../redux/layouts/actions';
-import Image from 'next/image';
+// import { setActivePageAction } from '../../redux/layouts/actions';
+// import Image from 'next/image';
 
 const ListDatas: React.FC<any> = () => {
     const t = useTranslations();
