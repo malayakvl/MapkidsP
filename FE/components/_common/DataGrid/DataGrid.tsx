@@ -255,7 +255,7 @@ const DataGrid: React.FC<Props> = ({
 
     return (
         <div className="overflow-x-scroll">
-            <div className="flex flex-wrap md:-m-2">
+            <div className="flex flex-wrap">
                 {renderTableBody()}
             </div>
             {!loading && !hidePaginationBar && (

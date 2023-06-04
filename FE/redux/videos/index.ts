@@ -1,9 +1,7 @@
 import { Action, handleActions } from "redux-actions";
 import {
   fetchItemsAction,
-  addUploadedFile,
-  removeUploadedFile,
-  uploadDoneAction
+  submitFormAction
 } from "./actions";
 
 const initialState: {
@@ -35,39 +33,37 @@ const ACTION_HANDLERS: any = {
       ...state,
     }),
   },
-  [addUploadedFile]: (
-      state: State.Images,
-      action: Type.ReduxAction<State.Images>
-  ): State.Images => {
-    return <Images.Root>{
-      ...state,
-      uploadedFiles: [...state.uploadedFiles, action.payload]
-    };
-  },
-  [removeUploadedFile]: (
-      state: State.Images,
-      action: Type.ReduxAction<State.Images>
-  ): State.Images => {
-    return <Images.Root>{
-      ...state,
-      uploadedFiles: state.uploadedFiles.filter(
-          (file) => file.lastModified !== (action.payload as any).lastModified
-      )
-    };
-  },
-  [uploadDoneAction]: {
-    next: (state: State.Images, action: Action<boolean>): State.Images => ({
-      ...state,
-      uploadDone: action.payload,
-    }),
-  },
+  // [submitFormAction]: (
+  //     state: State.Images,
+  //     action: Type.ReduxAction<State.Images>
+  // ): State.Images => {
+  //   return <Images.Root>{
+  //     ...state,
+  //     uploadedFiles: [...state.uploadedFiles, action.payload]
+  //   };
+  // },
+  // [removeUploadedFile]: (
+  //     state: State.Images,
+  //     action: Type.ReduxAction<State.Images>
+  // ): State.Images => {
+  //   return <Images.Root>{
+  //     ...state,
+  //     uploadedFiles: state.uploadedFiles.filter(
+  //         (file) => file.lastModified !== (action.payload as any).lastModified
+  //     )
+  //   };
+  // },
+  // [uploadDoneAction]: {
+  //   next: (state: State.Images, action: Action<boolean>): State.Images => ({
+  //     ...state,
+  //     uploadDone: action.payload,
+  //   }),
+  // },
 };
 
 export {
   fetchItemsAction,
-  addUploadedFile,
-  removeUploadedFile,
-  uploadDoneAction
+  submitFormAction
 };
 
 // ------------------------------------

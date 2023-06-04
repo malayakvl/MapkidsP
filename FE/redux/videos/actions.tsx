@@ -25,7 +25,7 @@ export const fetchItemsAction: any = createAction(
             dispatch(showLoaderAction(true));
             return axios
                 .get(
-                    `${baseUrl}/images/fetch-items?${queryString.stringify({
+                    `${baseUrl}/videos/fetch-items?${queryString.stringify({
                         limit,
                         offset,
                         sort,
@@ -45,6 +45,36 @@ export const fetchItemsAction: any = createAction(
                         count: res.data.count,
                         items: res.data.items
                     };
+                });
+        },
+);
+export const submitFormAction: any = createAction(
+    'chatbot/ADD_UPDATE_DATA',
+    async (data: any) =>
+        (dispatch: Type.Dispatch, getState: () => State.Root): Promise<void> => {
+            const state = getState();
+            const isNew = data.id;
+            dispatch(showLoaderAction(true));
+            return axios
+                .post(`${baseUrl}/chatbot`, data, {
+                    headers: {
+                        ...authHeader(state.user.user.email)
+                    }
+                })
+                .then(async () => {
+                    dispatch(
+                        setSuccessToastAction(
+                            isNew ? 'Scenario has been update' : 'Record has been created'
+                        )
+                    );
+                    dispatch(fetchItemsAction('users'));
+                    dispatch(setEmptyFormAction());
+                    // dispatch(showFormAction(false));
+                    dispatch(showLoaderAction(false));
+                })
+                .catch((e) => {
+                    dispatch(setErrorToastAction(e.response.data.error));
+                    dispatch(showLoaderAction(false));
                 });
         }
 );
@@ -91,3 +121,4 @@ export const bulkDeleteAction: any = createAction(
                 });
         }
 );
+export const setEmptyFormAction: any = createAction('video/EMPTY_FORM');

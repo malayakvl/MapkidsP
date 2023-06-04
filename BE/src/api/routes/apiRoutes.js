@@ -3,6 +3,7 @@ import * as express from 'express';
 // import DashboardController from '../controllers/DashboardController.js';
 import ImageController from '../controllers/ImageController.js';
 import ArticleController from '../controllers/ArticleController.js';
+import VideoController from '../controllers/ArticleController.js';
 import UserController from '../controllers/UserController.js';
 import SettingsController from '../controllers/SettingsController.js';
 import userModel from '../models/User.js';
@@ -48,6 +49,12 @@ apiRoutes.get('/articles/fetch-items', ArticleController.fetchItems);
 // apiRoutes.get('/articles/fetch-item', ArticleController.fetchItem);
 // apiRoutes.post('/articles/edit-item', ArticleController.editItem);
 // apiRoutes.post('/articles/bulk-delete', ArticleController.bulkDelete);
+
+/** ===================================================================== */
+/** ================== VIDEOS ROUTES ==================================== */
+/** ===================================================================== */
+apiRoutes.get('/videos/fetch-items', VideoController.fetchItems);
+
 
 apiRoutes.route('/profile')
     .post(UserController.changePassword)

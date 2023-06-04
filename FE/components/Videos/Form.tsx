@@ -1,20 +1,31 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {setActivePageAction} from "../../redux/layouts";
+import * as Yup from "yup";
+import { InputText, InputTextarea } from "../_form";
+import { Formik } from "formik";
+import { submitFormAction } from "../../redux/videos";
 
 const VideoForm: React.FC<any> = ({ uploadedFiles, photos }) => {
     const dispatch = useDispatch();
+    const SubmitSchema = Yup.object().shape({
+        imageUrl: Yup.string()
+            .trim("Cannot include leading and trailing spaces")
+            .min(3, "Must be at least 3 characters")
+            .strict(true)
+            .required("You must enter image url"),
+    });
+
+    useEffect(() => {
+    }, []);
 
     return (
         <>
-            <h2 className="mt-10 text-lg font-medium intro-y">Add Video</h2>
             <Formik
                 enableReinitialize
                 initialValues={{url: '', code: ''}}
                 validationSchema={SubmitSchema}
                 onSubmit={(values) => {
-                    // dispatch(setExistEmailAction(null));
-                    // dispatch(changePasswordAction(values));
+                    dispatch(submitFormAction(values));
                 }}
             >
                 {(props) => (
@@ -34,11 +45,13 @@ const VideoForm: React.FC<any> = ({ uploadedFiles, photos }) => {
                             <InputTextarea
                                 icon={null}
                                 label={"Embed Code"}
-                                name={"name"}
+                                name={"code"}
+                                maxLength={2000}
                                 placeholder={"Embed Video Code"}
                                 style=""
                                 props={props}
                                 tips={null}
+                                rows={10}
                             />
                         </div>
                         <div className="mt-10 mb-7 block border border-gray-180 border-b-0" />
@@ -52,4 +65,4 @@ const VideoForm: React.FC<any> = ({ uploadedFiles, photos }) => {
     );
 };
 
-export default Photos;
+export default VideoForm;

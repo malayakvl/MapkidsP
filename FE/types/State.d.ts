@@ -8,7 +8,7 @@ declare namespace State {
     user: User;
     images: Images;
     videos: Videos;
-    images: Images;
+    articels: Articles;
     userRequests: UserRequests;
 
   }
@@ -17,6 +17,7 @@ declare namespace State {
   type Profile = Profile.Root;
   type Images = Images.Root;
   type Videos = Videos.Root;
+  type Articles = Articles.Root;
   type User = User.Root;
   type Settings = Settings.Root;
 }

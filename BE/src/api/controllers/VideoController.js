@@ -1,7 +1,8 @@
-import imagesModel from '../models/Images.js';
+import imagesModel from '../models/Image.js';
 
 class VideoController {
     async fetchItems (req, res) {
+        console.log('Fetching items');
         const { limit, offset, queryFilter, column, sort } = req.query;
         if (!req.user) {
             return res.status(401).json('Access deny');
@@ -12,7 +13,7 @@ class VideoController {
     }
 
     async addVideo(req, res) {
-
+        const { limit, offset, queryFilter, column, sort } = req.query;
     }
 }
 

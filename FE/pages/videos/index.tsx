@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { getSession } from "next-auth/react";
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ListItems, Form } from '../../components/Videos';
+import { ListItems, VideoForm } from '../../components/Videos';
 import { activeTabSelectorFactory } from '../../redux/layouts/selectors';
 import { setSwitchHeaderAction, setActivePageAction } from '../../redux/layouts/actions';
 import BackendLayout from "../../components/Layout/BackendLayout";
@@ -53,7 +53,7 @@ export default function Index({ session, locale }: { session: any; locale: strin
                     <div className="grid grid-cols-12 gap-6 mt-5">
                         <div className="flex flex-wrap items-center col-span-12 mt-2 intro-y sm:flex-nowrap">
                             <button
-                                onClick={() => changeLayout('upload')}
+                                onClick={() => changeLayout('form')}
                                 className="btn bg-purple-800 inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer text-white shadow-md mr-[10px]">
                                 Add New Video
                             </button>
@@ -62,7 +62,7 @@ export default function Index({ session, locale }: { session: any; locale: strin
                     <ListItems locale={locale} />
                 </>
             )}
-            {activeLayout.tab === 'form' && <><Form uploadedFiles={[]} photos={[]} /></>}
+            {activeLayout.tab === 'form' && <VideoForm />}
         </>
     );
 }

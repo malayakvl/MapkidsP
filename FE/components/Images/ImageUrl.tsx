@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from "yup";
-import { InputText, TogglePassword } from "../_form";
+import { InputText } from "../_form";
 import { Formik } from "formik";
 import {changePasswordAction, setExistEmailAction} from "../../redux/profile/actions";
 

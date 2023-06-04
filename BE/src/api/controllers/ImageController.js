@@ -1,5 +1,5 @@
 import pool from '../models/connect.js';
-import imagesModel from '../models/Images.js';
+import imagesModel from '../models/Image.js';
 import multer from 'multer';
 import SharpMulter from 'sharp-multer';
 

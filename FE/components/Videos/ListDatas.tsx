@@ -6,17 +6,16 @@ import { PaginationType } from '../../constants';
 import {
     checkedIdsSelector,
     paginationSelectorFactory,
-    switchHeaderSelector
 } from '../../redux/layouts/selectors';
 import { checkIdsAction, initIdsAction } from '../../redux/layouts';
 import {
     itemCountSelector, paginatedItemsSelector
-} from '../../redux/images/selectors';
+} from '../../redux/articles/selectors';
 import {
     fetchItemsAction,
     bulkDeleteAction,
     deleteItemAction
-} from '../../redux/images/actions';
+} from '../../redux/videos/actions';
 import { baseApiUrl } from '../../constants';
 import { setModalConfirmationMetaAction } from '../../redux/layouts';
 import { setActivePageAction } from '../../redux/layouts/actions';

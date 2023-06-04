@@ -1,9 +1,9 @@
 import { Action, handleActions } from "redux-actions";
 import {
   fetchItemsAction,
-  addUploadedFile,
-  removeUploadedFile,
-  uploadDoneAction
+  // addUploadedFile,
+  // removeUploadedFile,
+  // uploadDoneAction
 } from "./actions";
 
 const initialState: {
@@ -25,7 +25,7 @@ const initialState: {
 const ACTION_HANDLERS: any = {
   [fetchItemsAction]: {
     next: (
-      state: State.Images,
+      state: State.Articles,
       action: Type.ReduxAction<Pick<State.Articles, "items">>
     ): State.Images => ({
       ...state,
@@ -39,9 +39,9 @@ const ACTION_HANDLERS: any = {
 
 export {
   fetchItemsAction,
-  addUploadedFile,
-  removeUploadedFile,
-  uploadDoneAction
+  // addUploadedFile,
+  // removeUploadedFile,
+  // uploadDoneAction
 };
 
 // ------------------------------------

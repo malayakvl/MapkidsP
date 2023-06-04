@@ -67,7 +67,7 @@ const ListDatas: React.FC<any> = () => {
     return (
         <>
             <div className="mt-7">
-                <div className="flex flex-wrap md:-m-2">
+                <div className="flex flex-wrap">
                     <DataGrid
                       hideBulk={false}
                       paginationType={PaginationType.IMAGES}
