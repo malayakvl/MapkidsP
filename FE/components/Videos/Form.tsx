@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as Yup from "yup";
 import { InputText, InputTextarea } from "../_form";
 import { Formik } from "formik";
 import { submitFormAction } from "../../redux/videos";
 
-const VideoForm: React.FC<any> = ({ uploadedFiles, photos }) => {
+const VideoForm: React.FC<any> = () => {
     const dispatch = useDispatch();
     const SubmitSchema = Yup.object().shape({
         imageUrl: Yup.string()

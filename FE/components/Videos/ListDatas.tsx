@@ -16,10 +16,10 @@ import {
     bulkDeleteAction,
     deleteItemAction
 } from '../../redux/videos/actions';
-import { baseApiUrl } from '../../constants';
+// import { baseApiUrl } from '../../constants';
 import { setModalConfirmationMetaAction } from '../../redux/layouts';
-import { setActivePageAction } from '../../redux/layouts/actions';
-import Image from 'next/image';
+// import { setActivePageAction } from '../../redux/layouts/actions';
+// import Image from 'next/image';
 
 const ListDatas: React.FC<any> = () => {
     const t = useTranslations();

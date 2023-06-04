@@ -1,7 +1,7 @@
 import pool from '../models/connect.js';
 import imagesModel from '../models/Image.js';
 import multer from 'multer';
-import SharpMulter from 'sharp-multer';
+// import SharpMulter from 'sharp-multer';
 
 class ImageController {
     // async fetchItems (page, perPage = 25, user, isRead = false, reqOffset = null, filters, column, sort) {

@@ -5,8 +5,7 @@ import { DataGrid, ButtonTableAction } from '../../components/_common';
 import { PaginationType } from '../../constants';
 import {
     checkedIdsSelector,
-    paginationSelectorFactory,
-    switchHeaderSelector
+    paginationSelectorFactory
 } from '../../redux/layouts/selectors';
 import { checkIdsAction, initIdsAction } from '../../redux/layouts';
 import {
@@ -30,10 +29,10 @@ const ListDatas: React.FC<any> = () => {
     const items = useSelector(paginatedItemsSelector);
     const checkedIds = useSelector(checkedIdsSelector);
 
-    const [filterOpen, setFilterOpen] = useState(false);
-    const { filters }: Layouts.Pagination = useSelector(
-        paginationSelectorFactory(PaginationType.IMAGES)
-    );
+    // const [filterOpen, setFilterOpen] = useState(false);
+    // const { filters }: Layouts.Pagination = useSelector(
+    //     paginationSelectorFactory(PaginationType.IMAGES)
+    // );
 
     const sendRequest = useCallback(() => {
         return dispatch(fetchItemsAction());

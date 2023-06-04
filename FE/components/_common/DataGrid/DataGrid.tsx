@@ -49,7 +49,7 @@ const DataGrid: React.FC<Props> = ({
     const t = useTranslations();
     const checkedIds = useSelector(checkedIdsSelector);
     const switchAllHeader = useSelector(switchHeaderSelector);
-    const user = useSelector(userSelector);
+    // const user = useSelector(userSelector);
     const listShowIds = [IMAGES];
     const showIds: boolean = listShowIds.includes(paginationType);
     const headers = TableHeaders[paginationType];
@@ -61,7 +61,7 @@ const DataGrid: React.FC<Props> = ({
     );
     const [loading, setLoading] = useState(true);
     const [allChecked, setAllChecked] = useState(false);
-    const [selectBulkAction, setSelectBulkAction] = useState(null);
+    // const [selectBulkAction, setSelectBulkAction] = useState(null);
 
     useEffect(() => {
         sendRequest().finally(() => {

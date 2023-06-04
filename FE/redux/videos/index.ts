@@ -33,15 +33,15 @@ const ACTION_HANDLERS: any = {
       ...state,
     }),
   },
-  // [submitFormAction]: (
-  //     state: State.Images,
-  //     action: Type.ReduxAction<State.Images>
-  // ): State.Images => {
-  //   return <Images.Root>{
-  //     ...state,
-  //     uploadedFiles: [...state.uploadedFiles, action.payload]
-  //   };
-  // },
+  [submitFormAction]: (
+      state: State.Images,
+      action: Type.ReduxAction<State.Images>
+  ): State.Images => {
+    return <Images.Root>{
+      ...state,
+      uploadedFiles: [...state.uploadedFiles, action.payload]
+    };
+  },
   // [removeUploadedFile]: (
   //     state: State.Images,
   //     action: Type.ReduxAction<State.Images>

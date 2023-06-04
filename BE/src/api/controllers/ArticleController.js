@@ -1,4 +1,4 @@
-import articlesModel from '../models/Article.js';
+import articleModel from '../models/Article.js';
 
 class ArticleController {
     async fetchItems (req, res) {
@@ -6,7 +6,7 @@ class ArticleController {
         if (!req.user) {
             return res.status(401).json('Access deny');
         } else {
-            const data = await videoModel.getAll(1, limit, offset);
+            const data = await articleModel.getAll(1, limit, offset);
             console.log(data);
             return res.status(200).json({ count: data.size, items: data.items});
         }
